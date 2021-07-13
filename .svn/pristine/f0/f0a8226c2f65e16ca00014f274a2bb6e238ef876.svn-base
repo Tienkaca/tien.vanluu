@@ -1,0 +1,319 @@
+#include "SceneManager.h"
+
+
+SceneManager * SceneManager::Instance = NULL;
+SceneManager::SceneManager()
+{
+	//m_Objects = new std::vector<Object*>;
+	m_mousePosition.m_px = 0;
+	m_mousePosition.m_py = 0;
+	
+}
+
+
+SceneManager::~SceneManager()
+{
+	for (int i = 0; i < m_Objects.size();i++)
+	{
+		delete m_Objects.at(i);
+		m_Objects.at(i) = NULL;
+	}
+}
+void SceneManager::getMousePosition(int x, int y)
+{
+	m_mousePosition.m_px = x;
+	m_mousePosition.m_py = y;
+	
+}
+std::vector<Object*> SceneManager::getObjects()
+{
+	return m_Objects;
+}
+void SceneManager::Update()
+{
+	//m_Objects.at(0)->Update(x,y);
+	static int j = 0;
+	j++;
+	if(m_mousePosition.m_px)
+	{
+		for (int i = 0; i < m_Objects.size();i++)
+		{
+			if (m_Objects.at(i)->mouseMovable())
+			{
+				m_Objects.at(i)->Update(m_mousePosition.m_px, m_mousePosition.m_py);
+			}
+			if (m_Objects.at(i)->forceAble())
+			{	
+				m_Objects.at(i)->Update(m_mousePosition.m_px, m_mousePosition.m_py);
+			}
+		}
+	}
+	//checkObjColision(m_Objects.at(1),m_Objects.at(3));
+	if (m_Objects.size())
+	{
+		checkColision();
+	}
+	if(j == 3)
+	{
+		m_lastX = m_mousePosition.m_px ;
+		m_lastY = m_mousePosition.m_py;
+		j = 0;
+	}
+
+	
+	//
+}
+void SceneManager::AddObject(Object* object)
+{
+	m_Objects.push_back(object);
+	
+	//m_Objects.back()->infor();
+}
+
+void SceneManager::Render()
+{
+	for(int i = 0 ; i < m_Objects.size();i++)
+	{
+		m_Objects.at(i)->Render();
+	}
+}
+void SceneManager::Init()
+{
+	char tempc[255];
+	std::string temps;
+	int tempi;
+	const char *filePath = "C:/tien.luuvan/C++/PhysicEngine/trunk/FrameworkC++/hihi.txt";
+	FILE *file;
+	file = fopen(filePath, "r");
+	if (!file)
+		std::cout << "Can not open this file" << std::endl;
+	else
+		std::cout << "File is opened" << std::endl;
+	int num;
+	fscanf(file,"#OBJECT_NUM %d\n", &num);
+	std::cout<<num<<"\n";
+	for(int  i  = 0; i< num;)
+	{
+		
+		fscanf(file,"#ID %d\nTYPE: %s\n",&tempi,tempc);
+		temps = tempc;
+		if(temps == "RECT")
+		{
+			//std::cout<< temps<<"\n";
+			i++;
+			std::cout << tempi << tempc << "\n";
+			int *tempRectInfor = new int[5];
+			
+			fscanf(file, "POSITION: %d, %d, %d, %d\n",(tempRectInfor), (tempRectInfor+1), (tempRectInfor+2), (tempRectInfor+3));
+			fscanf(file, "VELOCITY: %d\n\n", (tempRectInfor +4));
+			Rectangles *temprect = new Rectangles(tempRectInfor[0], tempRectInfor[1],1, tempRectInfor[4], tempRectInfor[2], tempRectInfor[3]);
+			AddObject(temprect);
+			delete[] tempRectInfor;
+			
+			
+		}
+		else if(temps == "CIRCLE")
+		{
+			int *tempCirInfor = new int[4];
+			fscanf(file, "POSITION: %d, %d, %d\n", (tempCirInfor), (tempCirInfor + 1), (tempCirInfor + 2));
+			fscanf(file, "VELOCITY: %d\n\n", (tempCirInfor + 3));
+			Circle *temCir = new Circle(*(tempCirInfor), *(tempCirInfor + 1), 1,*(tempCirInfor + 2));
+			AddObject(temCir);
+			delete [] tempCirInfor;
+			
+			//std::cout << tempc << std::endl;
+			i++;
+		}
+	}
+}
+
+void SceneManager::mouseCheck()
+{
+	for (int i = 0; i < m_Objects.size();i++)
+	{
+		if(m_Objects.at(i)->mouseCheck(m_mousePosition.m_px,m_mousePosition.m_py))
+		{
+			std::cout<<"CHUOT CHAM VAT THE THU: "<<i<<"\n";
+			break;
+		}
+	}
+}
+
+void SceneManager::resetMouseMovable()
+{
+	
+	for (int i = 0; i < m_Objects.size() - 1 ;i++)
+	{
+		m_Objects.at(i)->resetMouseMovable();
+	}
+}
+void SceneManager::checkObjColision(Object* a, Object* b)
+{
+	vector<int>* Obj1 = a->getData();
+	vector<int>* Obj2 = b->getData();
+	//cout<< Obj1->size()<<"\t"<< Obj2->size()<<"\n";
+	if (Obj1->size() == 3 && Obj2->size() == 3)  // Hinh tron vs hinh tron
+	{
+		int dx = Obj1->at(0) - Obj2->at(0);
+		int dy = Obj1->at(1) - Obj2->at(1);
+		int delta = (int)sqrt(dx*dx + dy*dy);
+		if (delta <= (Obj1->at(2) + Obj2->at(2)))
+		{
+			//std::cout << "CIRCLE-CIRCLE COLLISION\n";
+			
+		}
+	}
+	else if (Obj1->size() == 4 && Obj2->size() == 4)
+	{
+		bool sts1 = false;
+		bool sts2 = false;
+		
+		vector<Points> Ob1 = {{Obj1->at(0),				Obj1->at(1)},
+							{Obj1->at(0) + Obj1->at(2),	Obj1->at(1)},
+							{Obj1->at(0)+Obj1->at(2),	Obj1->at(1)+Obj1->at(3)},
+							{Obj1->at(0),				Obj1->at(1) + Obj1->at(3) }};
+		vector<Points> Ob2 = { { Obj2->at(0),				Obj2->at(1) },
+							{ Obj2->at(0) + Obj2->at(2),	Obj2->at(1) },
+							{ Obj2->at(0) + Obj2->at(2),	Obj2->at(1) + Obj2->at(3) },
+							{ Obj2->at(0),					Obj2->at(1) + Obj2->at(3) } };
+		//cout<<"OB1: "<< Ob1[0].m_px<<"\t"<<Ob1[0].m_py <<"\t" << Ob1[2].m_px << "\t" << Ob1[0].m_py
+		for (int i = 0; i<4;i++)
+		{
+			if (Ob2[0].m_px <= Ob1[i].m_px && Ob1[i].m_px <= Ob2[2].m_px && Ob2[0].m_py <= Ob1[i].m_py && Ob1[i].m_py <= Ob2[2].m_py)
+			{
+				sts1 = true;
+				
+			}
+			if (Ob1[0].m_px <= Ob2[i].m_px && Ob2[i].m_px <= Ob1[2].m_px && Ob1[0].m_py <= Ob2[i].m_py && Ob2[i].m_py <= Ob1[2].m_py)
+			{
+				sts2 = true;
+				
+			}
+		}
+		if(sts1 || sts2)
+		{
+			//std::cout<< "RECTANGLE- RECTANGLE  COLLISION\n";
+		}
+	}
+	else
+	{
+		
+		if (Obj1->size() == 3 && Obj2->size() == 4)
+		{
+			vector<int>* ObjTemp = Obj1;
+			Obj1 = Obj2;
+			Obj2 = ObjTemp;
+		}
+		else if (Obj1->size() == 4 && Obj2->size() == 3){}
+		bool sts = 0;
+		vector<Points> Ob1 = { { Obj1->at(0),				Obj1->at(1) },
+		{ Obj1->at(0) + Obj1->at(2),	Obj1->at(1) },
+		{ Obj1->at(0) + Obj1->at(2),	Obj1->at(1) + Obj1->at(3) },
+		{ Obj1->at(0),					Obj1->at(1) + Obj1->at(3) },
+		{ Obj1->at(0) + Obj1->at(2) / 2, Obj1->at(1) + Obj1->at(3) / 2 } };
+		int dx = Obj1->at(0) + Obj1->at(2) / 2 - Obj2->at(0);
+		int dy = Obj1->at(1) + Obj1->at(3) / 2 - Obj2->at(1);
+		int delta = (int)sqrt(dx*dx + dy*dy);
+		int R = (int)sqrt(Ob1.at(4).m_px*Ob1.at(4).m_px + Ob1.at(4).m_py*Ob1.at(4).m_py) + Obj2->at(2);
+		int min = MIN(Obj1->at(2) / 2, Obj1->at(3) / 2);
+		int max = MAX(Obj1->at(2) / 2, Obj1->at(3) / 2);
+		if (delta <= min)
+		{
+			sts = true;
+			
+		}
+		else
+		{
+			for (int i = 0; i< 4; i++)
+			{
+				int dx0 = Ob1.at(i).m_px - Obj2->at(0);
+				int dy0 = Ob1.at(i).m_py - Obj2->at(1);
+				int delta0 = (int)sqrt(dx0*dx0 + dy0*dy0);
+				if (delta0 <= Obj2->at(2))
+				{
+					sts = true;
+					
+				}
+			}
+		}
+		if (Ob1.at(0).m_px <= Obj2->at(0) && Obj2->at(0) <= Ob1.at(2).m_px &&	Ob1.at(0).m_py <= Obj2->at(1) && Obj2->at(1) <= Ob1.at(2).m_py)
+		{
+			sts = true;
+			
+		}
+		if(sts)
+		{
+			//cout<<"RECT-CIRCLE COLLISION\n";
+		}
+	}
+	delete Obj1;
+	delete Obj2;
+}
+
+
+void SceneManager::checkColision()
+{
+	for (int i = 0; i< m_Objects.size() - 1; i++)
+	{
+		for (int j = 0; j <m_Objects.size() -1; j++)
+		{
+			if (i < j)
+			{
+				checkObjColision(m_Objects.at(i), m_Objects.at(j));
+			}
+		}
+		checkEdgeColision(m_Objects.at(i), m_Objects.back());
+	}
+	
+	
+}
+
+void SceneManager::checkEdgeColision(Object* a, Object* b)
+{
+	vector<int>* Obj1 = a->getData();
+	vector<int>* Obj2 = b->getData();
+
+	if(Obj1->size() == 3)
+	{	
+		int r = Obj1->at(2);
+		if((Obj1->at(0) - Obj2->at(0))< r || (Obj1->at(1) - Obj2->at(1))< r || (Obj2->at(1) + Obj2->at(3)- Obj1->at(1)) < r || (Obj2->at(0) + Obj2->at(2) - Obj1->at(0)) < r)
+		{
+			//std::cout<< "CIR -EDGE\n";
+		}
+	}
+	else if(Obj1->size() == 4)
+	{
+		Points m = { Obj1->at(0) + Obj1->at(2)/2, Obj1->at(1) + Obj1->at(3) / 2 };
+		int w = Obj1->at(2);
+		int h = Obj1->at(3);
+
+		if((m.m_px - Obj2->at(0))< w/2 || (m.m_py - Obj2->at(1))< h/2 || (Obj2->at(0) + Obj2->at(2) - m.m_px) < w/2 || (Obj2->at(1) + Obj2->at(3) - m.m_py) < h/2)
+		{
+			//std::cout << "RECT -EDGE\n";
+		}
+	}
+}
+void  SceneManager::setForceAble()
+{
+	for (int i = 0; i < m_Objects.size() - 1;i++)
+	{
+		if(m_Objects.at(i)->mouseMovable())
+		m_Objects.at(i)->setForceAble();
+	}
+}
+void SceneManager::setDxDy(float x, float y)
+{
+	
+	for (int i = 0; i < m_Objects.size() - 1;i++)
+	{
+		if (m_Objects.at(i)->mouseMovable())
+			
+			{
+				m_Objects.at(i)->setDxDy((float)m_mousePosition.m_px - m_lastX  , (float)m_mousePosition.m_py - m_lastY );
+				//cout << "DXDY:" << m_lastX - (float)m_mousePosition.m_px << "\t" << m_lastY - (float)m_mousePosition.m_py << "\n";
+			}
+
+	}
+	
+	
+}

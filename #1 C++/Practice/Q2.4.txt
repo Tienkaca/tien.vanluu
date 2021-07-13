@@ -1,0 +1,18 @@
+Problem: xyz là 1 biến hằng cần được khởi tạo khi khai báo.
+
+Solve: 
+Cách 1: hiểu theo nghĩa xyz là 1 biến hằng:
+const int xyz = 0;
+int main(int n, char** args)
+{
+	printf("%d", xyz);
+}
+
+Cách 2: hiểu theo nghĩa xyz là 1 biến thường
+int xyz = 0;
+int main(int n, char** args)
+{
+	xyz = 0;
+	printf("%d", xyz);
+}
+

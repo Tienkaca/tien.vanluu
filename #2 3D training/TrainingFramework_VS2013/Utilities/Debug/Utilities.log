@@ -1,0 +1,13 @@
+﻿  stdafx.cpp
+  TGA.cpp
+  MemoryOperators.cpp
+  MemoryManager.cpp
+  Math.cpp
+c:\tien.luuvan\#2 3d training\trainingframework_vs2013\utilities\math.cpp(10): warning C4244: 'return': conversion from 'double' to 'GLfloat', possible loss of data
+c:\tien.luuvan\#2 3d training\trainingframework_vs2013\utilities\math.cpp(104): warning C4244: 'return': conversion from 'double' to 'GLfloat', possible loss of data
+c:\tien.luuvan\#2 3d training\trainingframework_vs2013\utilities\math.cpp(208): warning C4244: 'return': conversion from 'double' to 'GLfloat', possible loss of data
+  esUtil_win.cpp
+  esUtil.cpp
+  esShader.cpp
+  Generating Code...
+  Utilities.vcxproj -> C:\tien.luuvan\#2 3D training\TrainingFramework_VS2013\Debug\Utilities.lib

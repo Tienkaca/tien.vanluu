@@ -1,0 +1,42 @@
+a.Run the following code, and explain the result
+	Giá trị kiểu char từ -128 đến 127 khi  gán c = i, giá trị của i nằm ngoài khoảng giá trị của 
+kiểu char nên c#i, j = c và c sẽ nhận giá trị theo công thức:
+	TH1: i> 127
+		c = i%256 -256
+	Th2: i< -128
+		c = -|i|%256+256
+
+b. If replacing “char c” with “unsigned char c”, what will happen, and why?
+	kết quả in ra màn hình bằng giá trị của i. do i = 140 nằm trong khoảng giá trị của kiểu dữ 
+liệu unsigned char (từ 0 đến 255) do đó c = i nên j = c = i; 
+
+c.  Set “i” value to 260. Explain the result.
+	Cũng như câu 1, giá trị của i đã nằm ngoài khoảng giá trị của kiểu unsigned char của c nên cũng 
+được tự dộng gán lại theo công thức tương tự như câu 1
+
+d.Supposing that “i” is always from 0 to 255. Try to give a solution to get j’s value equal 
+to i’s value. (does not used unsigned char)
+
+Cách 1:
+#include <stdio.h>
+#include <iostream>
+int main(int n, char** args)
+{
+	int i = 140;
+	char c = i;
+	int j = i;      //solution :v đơn giản là gán j = i thôi :v
+	printf("%d", j);
+	system("pause");
+}
+
+Cách 2:
+#include <stdio.h>
+#include <iostream>
+int main(int n, char** args)
+{
+	int i = 140;
+	char c = i;
+	int j = c + 256;
+	printf("%d", j);
+	system("pause");
+}

@@ -1,0 +1,22 @@
+First way:Lỗi biên dịch: biến myVar chưa được khai báo trong trong file main nên không thể sử dụng
+Second way:Lỗi biên dịch: do 2 biến trùng tên nhưng lại là độc lập với nhau
+Third way: Khi sử dụng từ khóa extern thì biến myVar sẽ trở thành biến toàn cục đối với 2 file 
+another.cpp và main.cpp
+
+Implement:
+another.cpp:
+
+ int myVar = 2;
+
+main.cpp:
+
+extern int myVar;
+int main()
+{
+	while (1)
+	{
+		
+		std::cout<<myVar;
+		
+	}
+}

@@ -1,0 +1,3 @@
+n cho biết số tham số(dạng chuỗi kí tự , bao gồm cả tên file thực thi) được trỏ
+bởi args được truyền vào cho main. Ở trường hợp này thì chỉ có 1 tham số là tên 
+chương trình nên n = 1 và args trỏ đến chuỗi kí tự tên chương trình thực thi 

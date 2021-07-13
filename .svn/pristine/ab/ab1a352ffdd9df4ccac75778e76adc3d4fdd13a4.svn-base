@@ -1,0 +1,30 @@
+#pragma once
+#include "Object.h"
+#include <vector>
+#include <stdio.h>
+#include "esUtil.h"
+#include "log.h"
+#include "define.h"
+#include "VideoDriver.h"
+#include <crtdbg.h>
+
+#ifdef _DEBUG
+#ifndef DBG_NEW
+#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
+#define new DBG_NEW
+#endif
+#endif  // _DEBUG
+
+class SceneManager
+{
+	std::vector<Object*> m_Object;
+public:
+	void Update();
+	void AddObject(Object *object);
+	void Init();
+	void Render();
+
+	SceneManager();
+	~SceneManager();
+};
+

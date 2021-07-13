@@ -1,0 +1,86 @@
+#include "SceneManager.h"
+
+
+SceneManager * SceneManager::Instance = NULL;
+SceneManager::SceneManager()
+{
+	//m_Objects = new std::vector<Object*>;
+	
+}
+
+
+SceneManager::~SceneManager()
+{
+	for (int i = 0; i < m_Objects.size();i++)
+	{
+		delete m_Objects.at(i);
+		m_Objects.at(i) = NULL;
+	}
+}
+
+void SceneManager::Update(int x, int y)
+{
+	m_Objects.at(0)->Update(x,y);
+}
+void SceneManager::AddObject(Object* object)
+{
+	m_Objects.push_back(object);
+	m_Objects.back()->infor();
+}
+
+void SceneManager::Render()
+{
+	for(int i = 0 ; i < m_Objects.size();i++)
+	{
+		m_Objects.at(i)->Render();
+	}
+}
+void SceneManager::Init()
+{
+	char tempc[255];
+	std::string temps;
+	int tempi;
+	const char *filePath = "C:/tien.luuvan/C++/PhysicEngine/trunk/FrameworkC++/hihi.txt";
+	FILE *file;
+	file = fopen(filePath, "r");
+	if (!file)
+		std::cout << "Can not open this file" << std::endl;
+	else
+		std::cout << "File is opened" << std::endl;
+	int num;
+	fscanf(file,"#OBJECT_NUM %d\n", &num);
+	std::cout<<num<<"\n";
+	for(int  i  = 0; i< num;)
+	{
+		
+		fscanf(file,"#ID %d\nTYPE: %s\n",&tempi,tempc);
+		temps = tempc;
+		if(temps == "RECT")
+		{
+			//std::cout<< temps<<"\n";
+			i++;
+			std::cout << tempi << tempc << "\n";
+			int *tempRectInfor = new int[5];
+			
+			fscanf(file, "POSITION: %d, %d, %d, %d\n",(tempRectInfor), (tempRectInfor+1), (tempRectInfor+2), (tempRectInfor+3));
+			fscanf(file, "VELOCITY: %d\n\n", (tempRectInfor +4));
+			Rectangles *temprect = new Rectangles(tempRectInfor[0], tempRectInfor[1],1, tempRectInfor[4], tempRectInfor[2], tempRectInfor[3]);
+			AddObject(temprect);
+			delete[] tempRectInfor;
+			
+			
+		}
+		else if(temps == "CIRCLE")
+		{
+			int *tempCirInfor = new int[4];
+			fscanf(file, "POSITION: %d, %d, %d\n", (tempCirInfor), (tempCirInfor + 1), (tempCirInfor + 2));
+			fscanf(file, "VELOCITY: %d\n\n", (tempCirInfor + 3));
+			Circle *temCir = new Circle(*(tempCirInfor), *(tempCirInfor + 1), 1,*(tempCirInfor + 2));
+			AddObject(temCir);
+			delete [] tempCirInfor;
+			
+			//std::cout << tempc << std::endl;
+			i++;
+		}
+	}
+}

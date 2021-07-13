@@ -1,0 +1,28 @@
+#include "Object.h"
+
+
+
+Object::Object()
+{
+	m_p = {0,0};
+	m_mass = 0;
+	m_velocity = 0;
+}
+
+
+Object::~Object()
+{
+}
+
+void Object::Render()
+{
+	
+}
+void Object::Update(float frameTime)
+{
+
+}
+ void Object::draw(ESContext *esContext)
+{
+
+}

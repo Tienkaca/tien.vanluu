@@ -1,0 +1,14 @@
+Ban đầu khi khởi tạo:
+	Con trỏ A kiểu ClassA được cấp phát động và gọi hàm tạo với giá trị m_pVal = 10
+	Đối tượng B được khởi tạo giá trị B.m_pVal = 0
+	Con trỏ C kiểu ClassA được khai báo và trỏ đến địa chỉ của B
+Khi gọi Todo1(): A truyền tham trị , B truyền địa chỉ của B nhưng không tác động đến giá trị 
+tại vùng nhớ của B
+=> giá trị của A ,Bkhông thay đổi
+Khi gọi Todo2(): *A truyền tham chiếu tại vùng nhớ mà A trỏ tới, B truyền tham chiếu
+=> giá trị của A và B bị thay đổi
+Khi gọi Todo3(): *A truyền tham trị tại vùng nhớ mà A trỏ tới, B truyền tham trị
+=> Giá trị của A và B không bị thay đổi
+Khi gọi Todo4(): *&A truyền địa chỉ vùng nhớ mà A trỏ đến, *&B truyền tham trị tương đương B
+=> Chỉ có giá trị của vùng nhớ mà A trỏ đến thay đổi
+	 

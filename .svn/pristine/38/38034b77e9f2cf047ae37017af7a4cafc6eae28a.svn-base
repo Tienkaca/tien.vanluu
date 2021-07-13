@@ -1,0 +1,9 @@
+#include <windows.h>
+int main()
+{
+	while(1)
+	{
+		//Code
+		Sleep(200);
+	}
+}

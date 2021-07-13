@@ -1,0 +1,2 @@
+Lỗi biên dịch: i,j chưa có giá trị khởi tạo. Khi đó giá trị i,j không xác định và không thể 
+thực hiện được các phép toán trong hàm

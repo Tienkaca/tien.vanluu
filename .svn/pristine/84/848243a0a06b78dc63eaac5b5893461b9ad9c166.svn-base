@@ -1,0 +1,24 @@
+#pragma once
+#include "videoDriver.h"
+#include "esUtil.h"
+#include "iostream"
+typedef struct Position {
+	int x;
+	int y;
+
+}Position;
+class Object
+{
+ protected:
+	int m_x;
+	int m_y;
+	float m_mass;
+	float m_velocity;
+public:
+	virtual void Render();
+	virtual void infor();
+	Object(int x = 0, int y = 0, float mass= 0, float velocity = 0);
+	virtual ~Object();
+	
+};
+

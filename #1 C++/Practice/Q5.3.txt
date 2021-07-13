@@ -1,0 +1,15 @@
+a. Sử dụng delete để tránh gây lãng phí bộ nhớ
+b. Sau khi sử dụng biến với kĩ thuật cấp phát động thì ta dùng delete để thu hồi vùng nhớ
+đã được cấp phát đó
+c. 
+delete: sử dụng cho new ,chỉ có thể giải phóng cho 1 đối tượng
+delete[]: sử dụng cho new[], giải phóng bộ nhớ cho nhiều đối tượng một lúc
+
+#include <iostream>
+int main()
+{
+	int *a = new int;
+	int *b = new int[4];
+	delete a;
+	delete[] b;
+}

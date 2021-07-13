@@ -1,0 +1,58 @@
+#include "Rectangles.h"
+
+
+
+Rectangles::Rectangles(int x,int y,float mass,float velocity,int width,int height): Object(x,y,mass,velocity), m_width(width), m_height(height)
+{
+	//std:: cout<< m_x<<"\t"<<m_x+ width<<"\t"<<m_y<<"\t"<<m_y+height<<"\n";
+}
+
+
+Rectangles::~Rectangles()
+{
+}
+
+void Rectangles::Render()
+{
+	VideoDriver::GetInstance()->DrawRect(m_x, m_y, m_width,m_height);
+
+}
+void Rectangles::infor()
+{
+	std::cout << "Position:" << m_x << "\t" << m_y << std::endl;
+	std::cout << "Width, Height:" << m_width <<"\t"<<m_height<< std::endl;
+	std::cout << "Mass:" << m_mass << std::endl;
+	std::cout << "Velocity:" << m_velocity << std::endl;
+
+}
+void  Rectangles::Update(int x, int y)
+{
+	if (m_mouseMovable)
+	{
+		m_x = x + m_mouseOffsetX;
+		m_y = y + m_mouseOffsetY;
+	}
+}
+
+bool Rectangles::mouseCheck(int x, int y)
+{
+	if((m_x <= x && x <=(m_x + m_width)) && (m_y <=  y && y <= (m_y+ m_height)) )
+	{
+		m_mouseMovable = true;
+		m_mouseOffsetX =  m_x - x;
+		m_mouseOffsetY = m_y - y;
+		return true;
+	}
+	else
+		m_mouseMovable = false;
+		return false;
+}
+vector<int>* Rectangles::getData()
+{
+	vector<int> *temp = new vector<int>;
+	temp->push_back(m_x);
+	temp->push_back(m_y);
+	temp->push_back(m_width);
+	temp->push_back(m_height);
+	return temp;
+}

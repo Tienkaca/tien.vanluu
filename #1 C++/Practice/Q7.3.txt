@@ -1,0 +1,33 @@
+	Date()
+	{
+		m_dow = 0;
+		m_day = 1;
+		m_month = 1;
+		m_year = 1;
+	}
+	void checkValid()
+	{
+		if (1000 <= m_year <= 3000 && 0 <= m_dow <= 6)
+		{
+			if ((m_month == 1 || m_month == 3 || m_month == 5 || m_month == 7 || m_month == 8 || m_month == 10 || m_month == 12) && m_day>0 && m_day <= 31)
+				cout << "It is valid";
+			else
+				if (m_month == 4 || m_month == 6 || m_month == 9 || m_month == 11 && m_day>0 && m_day <= 30)
+					cout << "It is Valid";
+				else
+					if (m_month == 2)
+					{
+						if ((m_year % 400 == 0 || (m_year % 100 != 0 && m_year % 4 == 0)) && m_day>0 && m_day <= 29)
+							cout << "It is Valide";
+						else if (m_day>0 && m_day <= 28)
+							cout << "It is Valid";
+						else
+							cout << "It is Invalid";
+					}
+					else
+						cout << "It is Invalid";
+		}
+		else
+			cout << "It is Invalid";
+
+	}

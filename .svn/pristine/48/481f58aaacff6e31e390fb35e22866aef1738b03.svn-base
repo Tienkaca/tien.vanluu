@@ -1,0 +1,28 @@
+#include "Plane.h"
+
+
+
+Plane::Plane():Object(1,1,0,0),m_planeWidth(SCREEN_W -2), m_planeHight(SCREEN_H -2)
+{
+	
+}
+
+
+Plane::~Plane()
+{
+}
+
+void Plane::Render()
+{
+	VideoDriver::GetInstance()->DrawRect(m_x, m_y, m_planeWidth, m_planeHight);
+}
+
+ vector<int>* Plane::getData()
+{
+	vector<int> *temp = new vector<int>;
+	temp->push_back(m_x);
+	temp->push_back(m_y);
+	temp->push_back(m_planeWidth);
+	temp->push_back(m_planeHight);
+	return temp;
+}

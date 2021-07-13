@@ -1,0 +1,44 @@
+
+SVN questions:
+
+
+
+
+Please answer these questions when researching about SVN:
+
+1.   How many ways to create a new source in Server? Details.
+	new folder-> tortoiseSVN->create repository here
+
+2.
+2.1   Suppose that you have a Working copy named EXCERCISE1. Now coping to another folder named EXCERCISE2. Why can u still commit/update/add/delete files/folders in EXCERCISE2?
+	Because it's also a working copy
+2.2   Where does the SVN link of EXCERCISE2 link to?
+	Repository server
+3.
+3.1   When conflict occurs?
+	when two or more persons made changes to the same place within a document.
+
+3.2   What are the differences between "Conflict in a folder" and "Conflict in a file"?
+	
+3.3   What to do when conflicts occur?
+	the act of user intervention to address a conflict 
+between different changes to the same document and 
+decide which change should be applied.	
+	chose the only one who made change to the document
+4.   Which cases lead to "Update fail" in SVN?
+	Repository is deleted
+	Connection Error 
+5.
+5.1   What are the differences between "Revert to this Revision" and "Revert changes from these Revision"?
+	Revert to this Revision is used for a specific reversion
+	Revert changes from these Revision is used for a set of reversions
+5.2   Why can't we use Revert features when showing log from Repobrowser instead of Working Copy?
+	Because there is no "Revert" option in Repo browser
+5.3   If we want to revert change from this revision, we will do these steps:
+Working copy -> Show log -> Chose older version which we want to roll back -> Chose "Revert change from this revision"
+But we have a trouble here: Can't see any older version.
+How to solve this problem?
+
+
+
+

@@ -1,0 +1,64 @@
+#pragma once
+#include "Object.h"
+#include <vector>
+#include <stdio.h>
+#include "esUtil.h"
+#include "log.h"
+#include "define.h"
+#include "VideoDriver.h"
+#include <crtdbg.h>
+#include <iostream>
+#include <string.h>
+#include "Rectangles.h"
+#include "Circle.h"
+#include "Points.h"
+
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))
+
+class SceneManager
+{
+protected:
+	
+	std::vector<Object*> m_Objects;
+	Points m_mousePosition;
+	 
+public:
+	void Update();
+	void AddObject(Object *object);
+	void Init();
+	void Render();
+	void mouseCheck();
+	void resetMouseMovable();
+	void checkObjColision(Object* a, Object* b);
+	void checkEdgeColision(Object* a, Object* b);
+	void checkColision();
+	void getMousePosition(int x, int y);
+	std::vector<Object*> getObjects();
+	SceneManager();
+	~SceneManager();
+
+
+	static SceneManager *Instance;
+	static void CreateInstance()
+	{
+		if(Instance == NULL)
+		{
+			Instance = new SceneManager;
+		}
+	}
+	static SceneManager* GetInstance()
+	{
+		return Instance;
+	}
+	static void DestroyInstance()
+	{
+		if (Instance)
+		{
+			delete Instance;
+			Instance = NULL;
+		}
+	}
+
+};
+

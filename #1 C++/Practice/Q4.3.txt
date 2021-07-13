@@ -1,0 +1,18 @@
+void intvert(int input[], int n)
+{
+	int *b = new int[n];
+	memcpy(b,input,n*4);
+	for(int i = 0; i<n;i++)
+	{
+		input[i] = b[n -i -1];
+	}
+	delete b;
+}
+
+void intvert1(int input[], int n, int output[])
+{
+	for (int i = 0; i<n;i++)
+	{
+		output[i] = input[n - i - 1];
+	}
+}

@@ -1,0 +1,24 @@
+void SayHello()
+{
+	cout << "Hello world\n";
+}
+
+void SayHello(string str)
+{
+	cout <<  "Hello world\t"<<str;
+
+}
+
+void SayHello(string str, bool sts)
+{
+	if(sts)
+	{
+		for (int i = 0;str[i] != '\0';i++)
+		{
+			if (str[i] >= 'a' && str[i] <= 'z')   
+				str[i] = str[i] - 32;        
+		}
+		cout<< "Hello World\t"<<str<<endl;
+	}
+
+}

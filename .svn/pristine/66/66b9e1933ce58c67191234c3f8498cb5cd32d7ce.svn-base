@@ -1,0 +1,5 @@
+Chi số i vượt quá giói hạn của mảng a
+Sửa:	sizeof(a) thành sizeof(a)/sizeof(int)
+	sizeof(p) thanh sizeof(p)/sizeof(int)
+
+

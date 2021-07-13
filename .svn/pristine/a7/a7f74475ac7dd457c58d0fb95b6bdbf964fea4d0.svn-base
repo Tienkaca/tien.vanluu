@@ -1,0 +1,14 @@
+#pragma once
+#include "Object.h"
+class Rectangles :
+	public Object
+{
+	int m_width;
+	int m_height;
+public:
+	Rectangles(int x = 100, int y = 100, float mass =1, float velocity = 1, int width = 100, int height =100);
+	virtual ~Rectangles();
+	virtual void Render();
+	virtual void infor();
+};
+

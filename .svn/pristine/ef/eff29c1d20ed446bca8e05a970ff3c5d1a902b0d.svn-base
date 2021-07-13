@@ -1,0 +1,7 @@
+#include <string.h>
+void clone(char *input, char *output)
+{
+	strcpy(output,(const char*)input);
+}
+
+//set cờ  _CRT_SECURE_NO_WARNINGS

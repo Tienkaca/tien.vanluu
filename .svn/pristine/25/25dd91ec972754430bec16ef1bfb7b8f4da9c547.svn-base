@@ -1,0 +1,39 @@
+Cách 1: Global variable
+
+int i = 0;
+void func()
+{
+	//code
+	i++;
+}
+
+int main()
+{
+}
+
+Cách 2: Static variable inside function
+
+void func()
+{
+	static i = 0;
+	//code
+	i++;
+}
+int main()
+{
+
+}
+
+Cách 3: Static variable outside function
+
+static int i = 0;
+
+void func()
+{
+	//code
+	i++;
+}
+int main()
+{
+
+}

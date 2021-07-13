@@ -1,0 +1,39 @@
+Cách 1:
+#include <stdio.h>
+#include <iostream>
+int main(int n, char** args)
+{
+	int a[10] = { 0,1,2,3,4,5,6,7,8,9 };
+	int b[10] = { 10,11,12,23,14,15,16,17,18,19 };
+	int c[20];
+	memcpy(c, a, 40);
+	memcpy(c + 10, b, 40);
+	for (int i = 0; i<20; i++)
+	{
+		std::cout << c[i] << "\t";
+	}
+
+}
+
+Cách 2:
+#include <stdio.h>
+#include <iostream>
+int main(int n, char** args)
+{
+	int a[10]={0,1,2,3,4,5,6,7,8,9};
+	int b[10] = {10,11,12,23,14,15,16,17,18,19};
+	int c[20];
+	
+	memcpy(c,a,40);
+	memcpy(c+10, b, 40);
+	for(int i = 0; i<20; i++)
+	{
+		if(i<10) c[i] = a[i];
+		else
+		{
+			c[i] = b[i -10];
+		}
+		std::cout <<c[i]<<"\t";
+	}
+	
+}

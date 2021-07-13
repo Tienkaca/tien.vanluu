@@ -1,0 +1,30 @@
+#include "SceneManager.h"
+
+
+
+SceneManager::SceneManager()
+{
+	
+}
+
+
+SceneManager::~SceneManager()
+{
+}
+
+void SceneManager::Update()
+{
+	
+}
+void SceneManager::AddObject(Object* object)
+{
+	m_Object.push_back(object);
+}
+void SceneManager::Init()
+{
+
+}
+void SceneManager::Render()
+{
+
+}

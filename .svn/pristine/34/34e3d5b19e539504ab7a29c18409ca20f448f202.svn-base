@@ -1,0 +1,34 @@
+#include <ctime>
+#include <iostream>
+using namespace std;
+struct Date {
+	unsigned char m_dow;
+	unsigned char m_day;
+	unsigned char m_month;
+	unsigned int m_year;
+	void set(int dow, int day, int month , int year)
+	{
+		m_dow = dow;
+		m_day = day;
+		m_month = month;
+		m_year = year;	
+	}
+ };
+
+
+
+int main() {
+	// thời gian hiện tại tính theo hệ thống
+	time_t now = time(0);
+	tm *ltm = localtime(&now);
+	Date date ={0,0,0,0};
+	int t= 6;
+	date.set(ltm->tm_wday,ltm->tm_mday, ltm->tm_mon, ltm->tm_year);
+	cout << (int)date.m_dow << "," << (int)date.m_day << "-" << (int)date.m_month << "-" << (int)date.m_year << "\n";
+	cout << (int)date.m_day << "/" << (int)date.m_month << "/" << (int)date.m_year << "\n";
+	cout << (int)date.m_dow << "," << (int)date.m_month << "-" << (int)date.m_day << "-" << (int)date.m_year << "\n";
+	cout << (int)date.m_dow << " " << (int)date.m_day << "." << (int)date.m_month << "." << (int)date.m_year << "\n";
+	
+
+	
+}

@@ -1,0 +1,19 @@
+#pragma once
+typedef struct Position {
+	int x;
+	int y;
+
+}Position;
+class Object
+{
+ private:
+	Position m_p;
+	float m_mass;
+	float m_velocity;
+public:
+	Object();
+	virtual ~Object();
+	void Render();
+	void Update(float frameTime);
+};
+

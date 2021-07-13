@@ -1,0 +1,54 @@
+#pragma once
+#include "Object.h"
+#include <vector>
+#include <stdio.h>
+#include "esUtil.h"
+#include "log.h"
+#include "define.h"
+#include "VideoDriver.h"
+#include <crtdbg.h>
+#include <iostream>
+#include <string.h>
+#include "Rectangles.h"
+#include "Circle.h"
+
+
+class SceneManager
+{
+protected:
+	
+	std::vector<Object*> m_Objects;
+	 
+public:
+	void Update();
+	void AddObject(Object *object);
+	void Init();
+	void Render();
+	
+	SceneManager();
+	~SceneManager();
+
+
+	static SceneManager *Instance;
+	static void CreateInstance()
+	{
+		if(Instance == NULL)
+		{
+			Instance = new SceneManager;
+		}
+	}
+	static SceneManager* GetInstance()
+	{
+		return Instance;
+	}
+	static void DestroyInstance()
+	{
+		if (Instance)
+		{
+			delete Instance;
+			Instance = NULL;
+		}
+	}
+
+};
+

@@ -1,0 +1,5 @@
+output directory specifies a relative path to the output file directory, can include environment variables.
+intermediate directory specifies a relative path to the output file directory, can include environment variables.
+ extensions to delete on Clean semi-colon delimited wildcard specification for which files in the intermediate directory to delete on clean or rebuild.
+ build log file allows you to specify a non-default location for the log file that's created whenever you build a project.
+ configuration type specifies the project output and its required tools.

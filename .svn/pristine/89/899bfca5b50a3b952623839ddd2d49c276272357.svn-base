@@ -1,0 +1,35 @@
+#include "SceneManager.h"
+
+
+SceneManager * SceneManager::Instance = NULL;
+SceneManager::SceneManager()
+{
+	//m_Objects = new std::vector<Object*>;
+	
+}
+
+
+SceneManager::~SceneManager()
+{
+}
+
+void SceneManager::Update()
+{
+	
+}
+void SceneManager::AddObject(Object* object)
+{
+	m_Objects.push_back(object);
+	m_Objects.back()->infor();
+}
+void SceneManager::Init()
+{
+
+}
+void SceneManager::Render()
+{
+	for(int i = 0 ; i < m_Objects.size();i++)
+	{
+		m_Objects.at(i)->Render();
+	}
+}

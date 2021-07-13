@@ -1,0 +1,7 @@
+﻿  stdafx.cpp
+  Shaders.cpp
+  TrainingFramework.cpp
+  Generating Code...
+TrainingFramework.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  TrainingFramework.vcxproj -> C:\DOCUMENT\#2 - 3D Training\3D\TrainingFramework_VS2013\\BIN\TrainingFramework.exe
+  TrainingFramework.vcxproj -> C:\DOCUMENT\#2 - 3D Training\3D\TrainingFramework_VS2013\\BIN\TrainingFramework.pdb (Full PDB)

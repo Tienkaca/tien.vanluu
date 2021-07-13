@@ -1,0 +1,15 @@
+#pragma once
+#include "Object.h"
+class Plane :
+	public Object
+{
+private:
+	int m_planeWidth;
+	int m_planeHight;
+public:
+	virtual void Render();
+	virtual vector<int>* getData();
+	Plane();
+	~Plane();
+};
+

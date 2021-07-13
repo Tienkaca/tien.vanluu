@@ -1,0 +1,49 @@
+#pragma once
+#include "videoDriver.h"
+#include "esUtil.h"
+#include "iostream"
+#include <vector>
+using namespace std;
+typedef struct Position {
+	int x;
+	int y;
+
+}Position;
+class Object
+{
+ protected:
+	bool m_mouseMovable;
+	bool m_movableHor;
+	bool m_movableVer;
+	int m_mouseOffsetX;
+	int m_mouseOffsetY;
+	int m_x;
+	int m_y;
+	float m_mass;
+	float m_velocity;
+	float m_dx;
+	float m_dy;
+	bool m_gravity;
+	bool m_force;
+public:
+	void setGravity();
+	void resetGravity();
+	virtual void Render();
+	virtual void Update(int x, int y);
+	virtual void infor();
+	virtual void setForceAble();
+	virtual void resetForceAble();
+	virtual bool forceAble();
+	virtual bool mouseCheck(int x, int y);
+	virtual void setMovable();
+	virtual void resetMovable();
+	virtual vector<int>* getData();
+	virtual void setDxDy(float x, float y);
+	bool mouseMovable();
+	bool resetMouseMovable();
+	
+	Object(int x = 0, int y = 0, float mass= 0, float velocity = 0);
+	virtual ~Object();
+	
+};
+

@@ -1,0 +1,15 @@
+#include "Object.h"
+
+
+
+Object::Object()
+{
+	m_p = {0,0};
+	m_mass = 0;
+	m_velocity = 0;
+}
+
+
+Object::~Object()
+{
+}

@@ -1,0 +1,96 @@
+#include "Object.h"
+
+
+
+Object::Object(int x, int y, float mass, float velocity)
+{
+	//m_p = {0,0};
+	m_mouseMovable = false;
+	m_movableHor = true;
+	m_movableVer = true;
+	m_x = x;
+	m_y = y;
+	m_mass = mass;
+	m_velocity = velocity;
+	int m_dx = 0;
+	int m_dy = 0;
+	m_force = false;
+}
+void Object::Update(int x, int y)
+{
+	if (m_mouseMovable)
+	{
+		m_x = x + m_mouseOffsetX;
+		m_y = y + m_mouseOffsetY;
+	}
+	if (m_force)
+	{
+		m_x = m_x + m_dx;
+		m_y = m_y + m_dy;
+		cout<<"DXDY"<<m_dx <<"\t"<<m_dy <<"\n";
+	}
+}
+void Object::infor()
+{ 
+	std::cout<<"Position:"<< m_x<<"\t"<<m_y<<std::endl;
+	std::cout << "Mass:" << m_mass <<  std::endl;
+	std::cout << "Velocity:" << m_velocity << std::endl;
+}
+Object::~Object()
+{
+}
+
+void Object::Render()
+{
+	
+}
+bool Object::mouseCheck(int x, int y)
+{	
+	
+	return 0;
+}
+
+bool Object::mouseMovable()
+{
+	return m_mouseMovable;
+}
+
+bool Object::resetMouseMovable()
+{
+	m_mouseMovable = 0;
+	return 1;
+}
+void Object::setMovable()
+{
+	m_movableVer = 1;
+}
+void Object::resetMovable()
+{
+	m_movableVer =0;
+}
+vector<int>* Object::getData()
+{
+	vector<int> *t = new vector<int>;
+	return t;
+}
+void Object::setForceAble()
+{
+	m_force = true;
+}
+void Object::resetForceAble()
+{
+	m_force = false;
+}
+void Object::setDxDy(float x, float y)
+{
+	m_dx = x;
+	m_dy = y;
+}
+bool Object::forceAble()
+{
+	return m_force;
+}
+void Object::setGravity()
+{
+	
+}

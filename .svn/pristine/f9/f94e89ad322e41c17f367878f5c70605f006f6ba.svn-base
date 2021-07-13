@@ -1,0 +1,10 @@
+Lỗi a, p không cần delete. chỉ có p2 được cấp phát động nên chỉ cần delete p2
+Sửa:
+void main()
+{
+int a[4] = {1, 2, 3, 4};
+int *p = a;
+int *p2 = new int;
+
+delete p2;
+}

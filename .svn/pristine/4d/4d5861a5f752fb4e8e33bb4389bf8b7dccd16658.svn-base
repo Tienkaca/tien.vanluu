@@ -1,0 +1,13 @@
+typedef int *IntPtrType thay thế kiểu dữ liệu int* bằng từ khóa IntPtrType;
+
+Dòng cout đầu tiên: do ptr_a và ptr_b cùng trỏ đến một vùng nhớ đã được cấp phát động
+
+Dòng cout thứ 2: ptr_a vẫn giữ nguyên giá trị, còn ptr_b đã trỏ đến 1 vùng nhớ khác đã được cấp phát động
+
+Dòng cout thứ 3: giá trị tại vùng nhớ được trỏ dến bởi ptr_b được gán bằng giá trị trong vùng nhớ được trỏ đến bởi con 
+trỏ ptr_a
+
+Dòng cout thứ 4: con trỏ ptr_a trỏ dến vùng nhớ được trỏ bởi ptr_b
+
+Dòng cout thứ 5: ptr_c là 1 con trỏ trỏ đến con trỏ. *ptr_c là địa chỉ của con trỏ ptr_a, **ptr_c là giá trị chứa trong
+vufng nhớ được trỏ bởi ptr_a 

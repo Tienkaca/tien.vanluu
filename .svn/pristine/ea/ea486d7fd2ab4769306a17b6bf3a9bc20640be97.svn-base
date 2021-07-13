@@ -1,0 +1,50 @@
+
+SVN questions:
+
+
+
+
+Please answer these questions when researching about SVN:
+
+1.   How many ways to create a new source in Server? Details.
+There is 2 way:
+Creating a Repository with the Command Line Client
+	Create an empty folder with the name SVN
+	Create another folder inside SVN
+	Open the command prompt (or DOS-Box), change into D:\SVN\ and type: svnadmin create --fs-type fsfs MyNewRepository
+Creating The Repository With TortoiseSVN
+	Open the windows explorer
+	Create a new folder
+	Right click on the newly created folder and select TortoiseSVN → Create Repository here...
+
+2.
+2.1   Suppose that you have a Working copy named EXCERCISE1. Now coping to another folder named EXCERCISE2. Why can u still commit/update/add/delete files/folders in EXCERCISE2?
+	Because it's also a working copy
+2.2   Where does the SVN link of EXCERCISE2 link to?
+	Repository server
+3.
+3.1   When conflict occurs?
+	when two or more persons made changes to the same place within a document.
+
+3.2   What are the differences between "Conflict in a folder" and "Conflict in a file"?
+	
+3.3   What to do when conflicts occur?
+	Chose only one  change to the document
+4.   Which cases lead to "Update fail" in SVN?
+	Repository is deleted
+	Connection Error
+	... 
+5.
+5.1   What are the differences between "Revert to this Revision" and "Revert changes from these Revision"?
+	Revert to this Revision is used for a specific reversion
+	Revert changes from these Revision is used for a set of reversions
+5.2   Why can't we use Revert features when showing log from Repobrowser instead of Working Copy?
+	Because there is no "Revert" option in Repo browser
+5.3   If we want to revert change from this revision, we will do these steps:
+Working copy -> Show log -> Chose older version which we want to roll back -> Chose "Revert change from this revision"
+But we have a trouble here: Can't see any older version.
+How to solve this problem?
+
+	No action needed, BC it is the base version
+
+

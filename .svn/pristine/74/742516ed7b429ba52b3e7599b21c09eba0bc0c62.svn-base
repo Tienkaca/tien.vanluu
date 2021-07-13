@@ -1,0 +1,16 @@
+void swap(int *xp, int *yp)
+{
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
+}
+int CheckBigger(int a, int b) { return a>b; }
+int CheckSmaller(int a, int b) { return a<b; }
+void sort(int *arr, int count, int(*order) (int, int))
+{
+	int i, j;
+	for (i = 0; i < count - 1; i++)
+		for (j = 0; j < count - i - 1; j++)
+			if (order(arr[j],arr[j+1]))
+				swap(&arr[j], &arr[j + 1]);
+}

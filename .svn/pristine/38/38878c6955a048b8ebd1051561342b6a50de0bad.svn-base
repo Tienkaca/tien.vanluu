@@ -1,0 +1,6 @@
+a : in ra địa chỉ mà a trỏ tới
+*a : in ra giá trị phần tử đầu tiên của mảng
+&a : in ra địa chỉ của con trỏ a
+(a+1): địa chỉ của phần tử thứ 2 của mảng
+*(a+1): giá trị phần tử thứ 2 của mảng
+&a+1: giá trị địa chỉ của mảng a cộng thêm 1 (10 phần tử kiểu int tương đương 40 bytes)

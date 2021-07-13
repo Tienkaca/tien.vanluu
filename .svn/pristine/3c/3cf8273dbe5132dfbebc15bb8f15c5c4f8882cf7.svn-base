@@ -1,0 +1,22 @@
+#pragma once
+#include "videoDriver.h"
+#include "esUtil.h"
+typedef struct Position {
+	int x;
+	int y;
+
+}Position;
+class Object
+{
+ protected:
+	Position m_p;
+	float m_mass;
+	float m_velocity;
+public:
+	virtual void draw(ESContext *esContext);
+	Object();
+	virtual ~Object();
+	void Render();
+	void Update(float frameTime);
+};
+

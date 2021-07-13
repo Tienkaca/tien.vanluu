@@ -1,0 +1,1 @@
+Phép gán i = 5 trong dấu ngoặc của while luôn luôn đúng nên vòng lặp while cứ chạy mãi
