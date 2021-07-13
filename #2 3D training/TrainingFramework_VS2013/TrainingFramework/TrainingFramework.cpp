@@ -21,8 +21,13 @@ int Init(ESContext *esContext)
 	Vertex verticesData[3];
 
 	verticesData[0].pos.x = 0.0f;  verticesData[0].pos.y = 0.5f;  verticesData[0].pos.z = 0.0f;
+	verticesData[0].color.x = 1.0f; verticesData[0].color.y = 0; verticesData[0].color.z = 0; verticesData[0].color.w = 1.0f;
+
 	verticesData[1].pos.x = -0.5f;  verticesData[1].pos.y = -0.5f;  verticesData[1].pos.z = 0.0f;
+	verticesData[1].color.x = 0; verticesData[1].color.y = 1.0f; verticesData[1].color.z = 0; verticesData[1].color.w = 1.0f;
+
 	verticesData[2].pos.x = 0.5f;  verticesData[2].pos.y = -0.5f;  verticesData[2].pos.z = 0.0f;
+	verticesData[2].color.x = 0; verticesData[2].color.y = 0; verticesData[2].color.z = 1.0f; verticesData[2].color.w = 1.0f;
 
 	//buffer object
 	glGenBuffers(1, &vboId);
@@ -50,10 +55,12 @@ void Draw(ESContext *esContext)
 	glBindBuffer(GL_ARRAY_BUFFER, vboId);
 
 
-	if (myShaders.positionAttribute != -1)
+	if (myShaders.positionAttribute != -1 && myShaders.colorAttribute != -1)
 	{
 		glEnableVertexAttribArray(myShaders.positionAttribute);
+		glEnableVertexAttribArray(myShaders.colorAttribute);
 		glVertexAttribPointer(myShaders.positionAttribute, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+		glVertexAttribPointer(myShaders.colorAttribute, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (char*)0 + sizeof(Vector3));
 	}
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iboId);
 	
