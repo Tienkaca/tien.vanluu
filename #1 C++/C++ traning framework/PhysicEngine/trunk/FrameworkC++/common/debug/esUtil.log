@@ -1,8 +1,9 @@
-﻿  esUtil_win32.c
-  esUtil_TGA.c
-  esUtil.c
-  esTransform.c
-  esShapes.c
-  esShader.c
-  Generating Code...
-  esUtil.vcxproj -> C:\tien.luuvan\C++\PhysicEngine\trunk\FrameworkC++\common\lib\esUtil_d.lib
+﻿Build started 7/15/2021 9:38:35 PM.
+     1>Project "C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\common\esUtil.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         esUtil.vcxproj -> C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\common\lib\esUtil_d.lib
+     1>Done Building Project "C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\common\esUtil.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.08

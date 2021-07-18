@@ -1,0 +1,4 @@
+#ModelsCount 2
+ID 0
+FILE "../Resources/Models/Woman1.nfg"
+ID 2

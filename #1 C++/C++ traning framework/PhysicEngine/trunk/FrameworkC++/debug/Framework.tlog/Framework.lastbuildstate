@@ -1,2 +1,2 @@
-#TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
-debug|Win32|C:\tien.luuvan\C++\PhysicEngine\trunk\FrameworkC++\|
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v120:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+debug|Win32|C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\|

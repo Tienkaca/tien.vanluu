@@ -24,6 +24,8 @@ int Shaders::Init(char * fileVertexShader, char * fileFragmentShader)
 	uvAttribute = glGetAttribLocation(program, "a_uv");
 	int iTextureLoc = glGetUniformLocation(program,"u_texture");
 	glUniform1i(iTextureLoc, 0);
+	uniWVP = glGetUniformLocation(program, "u_WVP");
+	glUniformMatrix4fv(uniWVP, 1, GL_FALSE, 0);
 	return 0;
 }
 

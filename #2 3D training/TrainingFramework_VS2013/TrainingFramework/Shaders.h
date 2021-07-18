@@ -10,6 +10,7 @@ public:
 	GLint positionAttribute;
 	GLint colorAttribute;
 	GLint uvAttribute;
+	GLint uniWVP;
 	int Init(char * fileVertexShader, char * fileFragmentShader);
 	~Shaders();
 };
