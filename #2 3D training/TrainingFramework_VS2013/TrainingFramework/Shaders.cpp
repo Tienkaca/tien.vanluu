@@ -32,7 +32,33 @@ int Shaders::Init(char * fileVertexShader, char * fileFragmentShader)
 	glUniformMatrix4fv(uniWVP, 1, GL_FALSE, 0);
 	return 0;
 }
+int Shaders::Init()
+{
+	vertexShader = esLoadShader(GL_VERTEX_SHADER, fileVS);
 
+	if (vertexShader == 0)
+		return -1;
+
+	fragmentShader = esLoadShader(GL_FRAGMENT_SHADER, fileFS);
+
+	if (fragmentShader == 0)
+	{
+		glDeleteShader(vertexShader);
+		return -2;
+	}
+
+	program = esLoadProgram(vertexShader, fragmentShader);
+
+	//finding location of uniforms / attributes
+	positionAttribute = glGetAttribLocation(program, "a_posL");
+	colorAttribute = glGetAttribLocation(program, "a_color");
+	uvAttribute = glGetAttribLocation(program, "a_uv");
+	int iTextureLoc = glGetUniformLocation(program, "u_texture");
+	glUniform1i(iTextureLoc, 0);
+	uniWVP = glGetUniformLocation(program, "u_WVP");
+	glUniformMatrix4fv(uniWVP, 1, GL_FALSE, 0);
+	return 0;
+}
 Shaders::~Shaders()
 {
 	glDeleteProgram(program);

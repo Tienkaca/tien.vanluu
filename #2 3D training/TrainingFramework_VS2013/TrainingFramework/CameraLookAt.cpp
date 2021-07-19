@@ -7,7 +7,9 @@ CameraLookAt::CameraLookAt()
 	m_pos.x = 0;		m_pos.y = 0;		m_pos.z = 0;
 	m_target.x = 0;		m_target.y = 0;		m_target.z = 1;
 	m_up.x = 0;			m_up.y = 1;			m_up.z = 0;
-	m_P.SetIdentity();
+	m_mspeed = PI;
+	m_rspeed = PI;
+	m_P.SetPerspective(PI/2, Globals::screenWidth / Globals::screenHeight, 0.1, 500);
 }
 
 CameraLookAt::~CameraLookAt()
@@ -15,11 +17,17 @@ CameraLookAt::~CameraLookAt()
 }
 void CameraLookAt::Init(Vector3 _pos, Vector3 _target, Vector3 _up, float _FOVY, float _near, float _far, float _mspeed, float _rspeed)
 {
+	std::cout << "CameraLookAt::Init:\n";
 	m_pos = _pos;
+	std::cout <<"POS:"<< m_pos.x << m_pos.y << m_pos.z << "\n";
 	m_target = _target;
+	std::cout <<"TARGET:"<< m_target.x << m_target.y << m_target.z << "\n";
 	m_up = _up;
+	std::cout <<"UP:"<< m_up.x << m_up.y << m_up.z << "\n";
 	m_mspeed = _mspeed;
+	std::cout <<"MSPEED"<< m_mspeed << "\n";
 	m_rspeed = _rspeed;
+	std::cout <<"RSPEED"<< m_rspeed << "\n";
 	m_P.SetPerspective(_FOVY, Globals::screenWidth / Globals::screenHeight, _near, _far);
 
 }

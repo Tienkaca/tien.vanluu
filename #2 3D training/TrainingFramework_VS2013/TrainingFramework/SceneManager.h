@@ -2,14 +2,21 @@
 #include "Object.h"
 #include "ResourceManager.h"
 #include "CameraLookAt.h"
+#include "ResourceManager.h"
+#include "Objects.h"
 class SceneManager
 {
 private:
-	std::vector<Object*> m_objects;
-
+	std::vector<Objects*> m_objects;
+	ResourceManager *m_RMInstance;
 public:
-	void Init();
+	int Init();
+	void Draw(ESContext *esContext);
 	SceneManager();
 	~SceneManager();
+	static void CreateInstance();
+	static SceneManager* GetInstance();
+	static void DestroyInstance();
+	static SceneManager *ms_Instance;
 };
 

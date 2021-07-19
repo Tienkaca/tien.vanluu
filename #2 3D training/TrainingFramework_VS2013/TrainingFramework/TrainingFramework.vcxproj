@@ -93,10 +93,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraLookAt.cpp" />
     <ClCompile Include="Models.cpp" />
-    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Objects.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -108,12 +107,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraLookAt.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="Models.h" />
-    <ClInclude Include="Object.h" />
+    <ClInclude Include="Objects.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shaders.h" />

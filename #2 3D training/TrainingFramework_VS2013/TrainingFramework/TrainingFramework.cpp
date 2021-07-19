@@ -12,10 +12,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <iostream>
-#include "Camera.h"
 #include "Object.h"
 #include "CameraLookAt.h"
 #include "ResourceManager.h"
+#include "SceneManager.h"
 using namespace std;
 Vector3 scale(0.2, 0.2, 0.2);
 Vector3 rota(0, 0, 1);
@@ -23,22 +23,20 @@ Vector3 posi(0, 0 ,1);
 //Vector3 scale2(0.5, 0.5, 0.5);
 //Vector4 rota2(0, 0, 0, 1);
 //Vector4 posi2(0.5, 0, 0.9, 1);
-Object Obj(scale,posi,rota,"../Resources/Models/Woman1.nfg", "../Resources/Textures/Woman1.tga", "../Resources/Shaders/TriangleShaderVS.vs", "../Resources/Shaders/TriangleShaderFS.fs");
+//Object Obj(scale,posi,rota,"../Resources/Models/Woman1.nfg", "../Resources/Textures/Woman1.tga", "../Resources/Shaders/TriangleShaderVS.vs", "../Resources/Shaders/TriangleShaderFS.fs");
 //Object Obj2(scale2, posi2, rota2, "../Resources/Models/Woman2.nfg", "../Resources/Textures/Woman2.tga", "../Resources/Shaders/TriangleShaderVS.vs", "../Resources/Shaders/TriangleShaderFS.fs");
 int Init ( ESContext *esContext )
 {
+	glEnable(GL_DEPTH_TEST);
 	ResourceManager::GetInstance()->Init();
-	return ( Obj.Init());
+	
+	return (SceneManager::GetInstance()->Init());
 	//glEnable(GL_DEPTH_TEST);
 }
 
 void Draw(ESContext *esContext)
 {
-	glEnable(GL_DEPTH_TEST);
-	glClear(GL_COLOR_BUFFER_BIT);
-	
-	Obj.Draw(esContext);
-	glClear(GL_DEPTH_BUFFER_BIT);
+	SceneManager::GetInstance()->Draw(esContext);
 	
 }
 
@@ -100,6 +98,7 @@ void CleanUp()
 {
 	CameraLookAt::GetInstance()->DestroyInstance();
 	ResourceManager::GetInstance()->DestroyInstance();
+	SceneManager::GetInstance()->DestroyInstance();
 }
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -107,6 +106,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	ESContext esContext;
 	CameraLookAt::GetInstance()->CreateInstance();
 	ResourceManager::GetInstance()->CreateInstance();
+	SceneManager::GetInstance()->CreateInstance();
     esInitContext ( &esContext );
 
 	esCreateWindow ( &esContext, "Hello Triangle", Globals::screenWidth, Globals::screenHeight, ES_WINDOW_RGB | ES_WINDOW_DEPTH);

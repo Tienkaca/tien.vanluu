@@ -91,7 +91,6 @@ int Object::Init()
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	Vertex *verticesData;
 	int *indiceData;
-	
 	InitData(verticesData, indiceData);
 	if (verticesData && indiceData)
 	{
@@ -142,7 +141,6 @@ void Object::Draw(ESContext *esContext)
 	//glClear(GL_COLOR_BUFFER_BIT);
 
 	glUseProgram(m_shaders.program);
-
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboId);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_iboId);
 	glBindTexture(GL_TEXTURE_2D, m_textureId);
@@ -167,5 +165,5 @@ void Object::Draw(ESContext *esContext)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	//glBindTexture(GL_TEXTURE_2D, 0);
 	eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface);
-	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }

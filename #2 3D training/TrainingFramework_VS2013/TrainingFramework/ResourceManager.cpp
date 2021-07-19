@@ -68,6 +68,7 @@ void ResourceManager::Init()
 	for (int i = 0; i < count; i++)
 	{
 		Texture *Txt = new Texture;
+		Txt->mp_is2DTexture = 1;
 		fscanf(file, "ID %d\n", &Txt->m_id);
 		//std::cout << Txt->m_id << "\n";
 		fscanf(file, "FILE %s\n", &Txt->m_file);
@@ -82,6 +83,7 @@ void ResourceManager::Init()
 	for (int i = 0; i < count; i++)
 	{
 		Texture *Cube = new Texture;
+		Cube->mp_is2DTexture = 0;
 		fscanf(file, "ID %d\n", &Cube->m_id);
 		//std::cout << Cube->m_id << "\n";
 		fscanf(file, "FILE %s\n", &Cube->m_file);
@@ -98,17 +100,17 @@ void ResourceManager::Init()
 		int n;
 		Shaders *Sd = new Shaders;
 		fscanf(file, "ID %d\n", &Sd->id);
-		std::cout << Sd->id << "\n";
+		//std::cout << Sd->id << "\n";
 		fscanf(file, "VS %s\n", &Sd->fileVS);
-		std::cout << Sd->fileVS << "\n";
+		//std::cout << Sd->fileVS << "\n";
 		fscanf(file, "FS %s\n", &Sd->fileFS);
-		std::cout << Sd->fileFS << "\n";
+		//std::cout << Sd->fileFS << "\n";
 		fscanf(file, "STATES %d\n", &n);
-		std::cout << n << "\n";
+		//std::cout << n << "\n";
 		for (int j = 0; j < n; j++)
 		{
 			fscanf(file, "%s %d\n", &buffer, &Sd->state[i]);
-				std::cout << buffer << "\t" << Sd->state[i] << "\n";
+				//std::cout << buffer << "\t" << Sd->state[i] << "\n";
 		}
 		mp_shaders.push_back(Sd);
 	}
