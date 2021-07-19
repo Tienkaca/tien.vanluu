@@ -7,10 +7,21 @@ CameraLookAt::CameraLookAt()
 	m_pos.x = 0;		m_pos.y = 0;		m_pos.z = 0;
 	m_target.x = 0;		m_target.y = 0;		m_target.z = 1;
 	m_up.x = 0;			m_up.y = 1;			m_up.z = 0;
+	m_P.SetIdentity();
 }
 
 CameraLookAt::~CameraLookAt()
 {
+}
+void CameraLookAt::Init(Vector3 _pos, Vector3 _target, Vector3 _up, float _FOVY, float _near, float _far, float _mspeed, float _rspeed)
+{
+	m_pos = _pos;
+	m_target = _target;
+	m_up = _up;
+	m_mspeed = _mspeed;
+	m_rspeed = _rspeed;
+	m_P.SetPerspective(_FOVY, Globals::screenWidth / Globals::screenHeight, _near, _far);
+
 }
 void CameraLookAt::CreateInstance()
 {
@@ -44,9 +55,9 @@ Matrix CameraLookAt::GetWorldMatrix(bool _forward)
 }
 Matrix CameraLookAt::GetViewPerspectiveMatrix()
 {
-	Matrix P;
-	P.SetPerspective(FOVY, Globals::screenWidth / Globals::screenHeight, NEARPLANE, FARPLANE);
-	Matrix VP = GetViewMatrix()*P;
+	
+	//P.SetPerspective(FOVY, Globals::screenWidth / Globals::screenHeight, NEARPLANE, FARPLANE);
+	Matrix VP = GetViewMatrix()*m_P;
 	return VP;
 }
 Matrix CameraLookAt::GetRotMatrix(bool _forward)
@@ -120,56 +131,39 @@ void CameraLookAt::MoveX(Vector3 _dx)
 }
 void CameraLookAt::Update(float _dt)
 {
-	Vector3 dz = -(m_pos - m_target).Normalize()*_dt*SPEEDMOVE;
+	Vector3 dz = -(m_pos - m_target).Normalize()*_dt*m_mspeed;
 	Vector3 zaxis = (m_pos - m_target).Normalize();
 	Vector3 xaxis = (m_up.Cross(zaxis).Normalize());
-	Vector3 dx = xaxis*_dt*SPEEDMOVE;
-	float da = _dt*SPEEDROT;
-	char signal;
-	if (kbhit())
+	Vector3 dx = xaxis*_dt*m_mspeed;
+	float da = _dt*m_rspeed;
+	switch (mp_signal)
 	{
-		signal = getch();
-		if (signal == 224);
-		{
-			signal = getch();
-			//printf("%i", signal);
-		}
-		switch (signal)
-		{
-		case 'w': // phim w
-			MoveZ(dz);
-			std::cout << "phim w\n";
-			break;
-		case 115: //phim s
-			MoveZ(-dz);
-			std::cout << "phim s\n";
-			break;
-		case 'a': // phim w
-			MoveX(dx);
-			std::cout << "phim a\n";
-			break;
-		case 'd': //phim s
-			MoveX(-dx);
-			std::cout << "phim d\n";
-			break;
-		case 72: //phim mui ten len
-			SetRotX(da);
-			std::cout << "phim len\n";
-			break;
-		case 80: // phim mui ten duoi
-			SetRotX(-da);
-			std::cout << "phim duoi\n";
-			break;
-		case 75: // phim mui ten trai
-			SetRotY(da);
-			std::cout << "phim trai\n";
-			break;
-		case 77: //mui ten sang phai
-			SetRotY(-da);
-			std::cout << "phim phai\n";
-			break;
-		default:
-			break;
-		}
+	case 'W': // phim w
+		MoveZ(dz);
+		std::cout << "phim w\n";
+		break;
+	case 'S': //phim s
+		MoveZ(-dz);
+		break;
+	case 'A': // phim w
+		MoveX(-dx);
+		break;
+	case 'D': //phim s
+		MoveX(dx);
+		break;
+	case VK_UP: //phim mui ten len
+		SetRotX(da);
+		break;
+	case VK_DOWN: // phim mui ten duoi
+		SetRotX(-da);
+		break;
+	case VK_LEFT: // phim mui ten trai
+		SetRotY(da);
+		break;
+	case VK_RIGHT: //mui ten sang phai
+		SetRotY(-da);
+		break;
+	default:
+		break;
 	}
 }

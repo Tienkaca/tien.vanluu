@@ -1,6 +1,10 @@
 #include <stdafx.h>
 #include "Shaders.h"
-
+Shaders::Shaders()
+{
+	for (int i = 0; i < 10; i++)
+		state[i] = 0;
+}
 int Shaders::Init(char * fileVertexShader, char * fileFragmentShader)
 {
 	vertexShader = esLoadShader(GL_VERTEX_SHADER, fileVertexShader);

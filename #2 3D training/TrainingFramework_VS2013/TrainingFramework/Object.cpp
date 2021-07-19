@@ -2,7 +2,7 @@
 #include "Object.h"
 
 
-Object::Object(Vector3 _scale, Vector4 _pos, Vector4 _rot, char* _nfgId, char* _tgaId, char* _VSShaderId, char* _FTShaderId )
+Object::Object(Vector3 _scale, Vector3 _pos, Vector3 _rot, char* _nfgId, char* _tgaId, char* _VSShaderId, char* _FTShaderId )
 {
 	m_vboId = 0;
 	m_iboId = 0;

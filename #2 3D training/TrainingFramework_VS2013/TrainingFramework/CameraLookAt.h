@@ -11,8 +11,13 @@ private:
 	Vector3 m_target;
 	Vector3 m_pos;
 	float	m_scale = 1;
+	Matrix m_P;
+	float m_mspeed;
+	float m_rspeed;
 	static CameraLookAt* ms_Instance;
 public:
+	char mp_signal;
+	void Init(Vector3 _pos,Vector3 _target, Vector3 _up,float _FOVY,float _near, float _far,float _mspeed, float _rspeed);
 	void Update(float _dt);
 	Matrix GetViewMatrix();
 	Matrix GetViewPerspectiveMatrix();
