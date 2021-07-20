@@ -107,7 +107,7 @@ void CameraLookAt::SetRotY(float _angle)
 	Vector3 yaxis = (zaxis.Cross(xaxis).Normalize());
 	Vector4 LTarget(0, 0, -(m_pos - m_target).Length(), 1);
 	Matrix Ry;
-	Ry.SetRotationAngleAxis(_angle, yaxis.x, yaxis.y, yaxis.z);
+	Ry.SetRotationAngleAxis(_angle, m_up.x, m_up.y, m_up.z);
 	Vector4 LNTarget = LTarget * Ry;
 	Vector4 WTarget = LNTarget*GetWorldMatrix(true);
 	m_target.x = WTarget.x;
@@ -126,6 +126,13 @@ void CameraLookAt::SetRotX(float _angle)
 	m_target.x = WTarget.x;
 	m_target.y = WTarget.y;
 	m_target.z = WTarget.z;
+	/*Vector4 Lup(0,1,0,1);
+	Vector4 LNup = Lup*Rx;
+	Vector4 Wup = LNup*GetWorldMatrix(true);
+	m_up.x = Wup.x;
+	m_up.y = Wup.y;
+	m_up.z = Wup.z;*/
+
 }
 void CameraLookAt::MoveZ(Vector3 _dz)
 {
