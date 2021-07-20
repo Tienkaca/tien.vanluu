@@ -72,8 +72,12 @@ int SceneManager::Init()
 		fscanf(file, "ROTATION  %f %f %f\n", &rot.x, &rot.y, &rot.z);
 		Vector3 scale;
 		fscanf(file, "SCALE %f %f %f\n", &scale.x, &scale.y, &scale.z);
-		re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_texture2D.at(textId[0]), m_RMInstance->mp_models.at(modelId));
+		if (textCount)
+			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_texture2D.at(textId[0]), m_RMInstance->mp_models.at(modelId));
 		// chu y textId dong ben tren moi chi lay gia tri textId cua 1 texture
+		else if (cubeTextId)
+			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_cubeTexture2D.at(cubeTextId), m_RMInstance->mp_models.at(modelId));
+
 		m_objects.push_back(O);
 	}
 	return re;

@@ -5,7 +5,7 @@
 Texture::Texture()
 {
 	m_id = 0;
-	mp_is2DTexture = 0;
+	mp_isCubeTexture = 0;
 }
 
 
@@ -33,7 +33,7 @@ void Texture::Init()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-	glGenerateMipmap(GL_TEXTURE_2D);
+	/*glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+	glGenerateMipmap(GL_TEXTURE_2D);*/
 	glBindTexture(GL_TEXTURE_2D, 0);
 }

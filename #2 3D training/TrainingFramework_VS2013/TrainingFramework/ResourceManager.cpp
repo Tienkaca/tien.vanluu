@@ -68,7 +68,7 @@ void ResourceManager::Init()
 	for (int i = 0; i < count; i++)
 	{
 		Texture *Txt = new Texture;
-		Txt->mp_is2DTexture = 1;
+		Txt->mp_isCubeTexture = 0;
 		fscanf(file, "ID %d\n", &Txt->m_id);
 		//std::cout << Txt->m_id << "\n";
 		fscanf(file, "FILE %s\n", &Txt->m_file);
@@ -83,7 +83,7 @@ void ResourceManager::Init()
 	for (int i = 0; i < count; i++)
 	{
 		Texture *Cube = new Texture;
-		Cube->mp_is2DTexture = 0;
+		Cube->mp_isCubeTexture = 1;
 		fscanf(file, "ID %d\n", &Cube->m_id);
 		//std::cout << Cube->m_id << "\n";
 		fscanf(file, "FILE %s\n", &Cube->m_file);

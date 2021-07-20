@@ -16,7 +16,7 @@ FILTER LINEAR_LINEAR LINEAR
 
 #Cube Textures: 1
 ID 0
-FILE ../Resources/Textures/envMap.tga
+FILE ../Resources/Textures/SkyBox.tga
 WRAP CLAMP
 FILTER LINEAR LINEAR
 

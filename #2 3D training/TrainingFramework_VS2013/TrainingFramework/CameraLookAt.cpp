@@ -102,12 +102,14 @@ Matrix CameraLookAt::GetScaleMatrix(bool _forward)
 }
 void CameraLookAt::SetRotY(float _angle)
 {
-	Vector3 zaxis = (m_pos - m_target).Normalize();
+	/*Vector3 zaxis = (m_pos - m_target).Normalize();
 	Vector3 xaxis = (m_up.Cross(zaxis).Normalize());
-	Vector3 yaxis = (zaxis.Cross(xaxis).Normalize());
+	Vector3 yaxis = (zaxis.Cross(xaxis).Normalize());*/
+	Vector4 yWorld(0, 1, 0, 0);
+	Vector4 yLocal = yWorld*GetViewMatrix();
 	Vector4 LTarget(0, 0, -(m_pos - m_target).Length(), 1);
 	Matrix Ry;
-	Ry.SetRotationAngleAxis(_angle, m_up.x, m_up.y, m_up.z);
+	Ry.SetRotationAngleAxis(_angle, yLocal.x, yLocal.y, yLocal.z);
 	Vector4 LNTarget = LTarget * Ry;
 	Vector4 WTarget = LNTarget*GetWorldMatrix(true);
 	m_target.x = WTarget.x;

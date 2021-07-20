@@ -11,7 +11,7 @@ public:
 	char m_wrap[255];
 	char m_filter1[128];
 	char m_filter2[128];
-	bool mp_is2DTexture;
+	bool mp_isCubeTexture;
 	void Init();
 	Texture();
 	~Texture();

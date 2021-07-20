@@ -1,4 +1,4 @@
-﻿Build started 7/21/2021 2:48:17 AM.
+﻿Build started 7/21/2021 5:52:42 AM.
      1>Project "C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#2 3D training\TrainingFramework_VS2013\TrainingFramework\TrainingFramework.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\Include" /I"C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\" /I"C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\Resources" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\TrainingFramework.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CameraLookAt.cpp
@@ -22,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.43
+Time Elapsed 00:00:01.27
