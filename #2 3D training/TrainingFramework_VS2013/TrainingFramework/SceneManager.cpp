@@ -9,6 +9,10 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
+	for (int i = 0; i < m_objects.size(); i++)
+	{
+		delete m_objects.at(i);
+	}
 }
 int SceneManager::Init()
 {

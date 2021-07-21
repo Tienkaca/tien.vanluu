@@ -16,6 +16,7 @@ public:
 	void Init();
 	void InitObj();
 	void InitCube();
+	void InitCube2();
 	Texture();
 	~Texture();
 };

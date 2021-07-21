@@ -78,7 +78,7 @@ void Objects::DrawObj(ESContext *esContext)
 }
 void Objects::DrawCube(ESContext *esContext)
 {
-	glDisable(GL_DEPTH_TEST);
+	glDepthMask(GL_FALSE);
 	glUseProgram(m_shaders->program);
 	glBindBuffer(GL_ARRAY_BUFFER, m_model->m_vboId);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_model->m_iboId);
@@ -93,10 +93,10 @@ void Objects::DrawCube(ESContext *esContext)
 		Matrix WVP = W*VP;
 		glUniformMatrix4fv(m_shaders->uniWVP, 1, GL_FALSE, (const GLfloat*)WVP.m);
 	}
-	glBindBuffer(GL_ARRAY_BUFFER, m_model->m_vboId);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_model->m_iboId);
-	glBindTexture(GL_TEXTURE_CUBE_MAP, m_text->m_textId);
-	glEnable(GL_DEPTH_TEST);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+	glDepthMask(GL_TRUE);
 }
 void Objects::Draw(ESContext *esContext)
 {

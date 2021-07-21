@@ -108,4 +108,12 @@
       <Filter>Resources\Shaders</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Resources\RMSM\RM.txt">
+      <Filter>Resources\Shaders</Filter>
+    </Text>
+    <Text Include="..\Resources\RMSM\SM.txt">
+      <Filter>Resources\Shaders</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

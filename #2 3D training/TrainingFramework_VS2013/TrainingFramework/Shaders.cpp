@@ -51,7 +51,7 @@ int Shaders::Init()
 
 	//finding location of uniforms / attributes
 	positionAttribute = glGetAttribLocation(program, "a_posL");
-	colorAttribute = glGetAttribLocation(program, "a_color");
+	//colorAttribute = glGetAttribLocation(program, "a_color");
 	uvAttribute = glGetAttribLocation(program, "a_uv");
 	int iTextureLoc = glGetUniformLocation(program, "u_texture");
 	glUniform1i(iTextureLoc, 0);
