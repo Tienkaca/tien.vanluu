@@ -52,18 +52,27 @@ int SceneManager::Init()
 		Objects *O = new Objects;
 		int OId;
 		fscanf(file, "ID %d %s\n", &OId, &buffer);
+		std::cout << "ID:\t" << OId<<"\n";
 		int modelId;
 		fscanf(file, "MODEL %d\n", &modelId);
+		std::cout << "MODEL:\t" << modelId<<"\n";
 		int textCount,textId[8];
 		fscanf(file, "TEXTURES %d\n", &textCount);
-		for (int i = 0; i < textCount; i++)
+		std::cout << "TEXTURES:\t" << textCount << "\n";
+		if (textCount)
 		{
-			fscanf(file, "TEXTURE %d\n", &textId[i]);
+			for (int i = 0; i < textCount; i++)
+			{
+				fscanf(file, "TEXTURE %d\n", &textId[i]);
+				std::cout << "TEXTURE:\t" << textId[i] << "\n";
+			}
 		}
 		int cubeTextId;
 		fscanf(file, "CUBETEXTURES %d\n", &cubeTextId);
+		std::cout << "CUBETEXTURES:\t" << cubeTextId<< "\n";
 		int shaderId;
 		fscanf(file, "SHADER %d\n", &shaderId);
+		std::cout << "SHADER:\t" << shaderId << "\n";
 		int lightId;
 		fscanf(file, "LIGHTS %d\n", &lightId);
 		Vector3 pos;
@@ -76,7 +85,7 @@ int SceneManager::Init()
 			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_texture2D.at(textId[0]), m_RMInstance->mp_models.at(modelId));
 		// chu y textId dong ben tren moi chi lay gia tri textId cua 1 texture
 		else if (cubeTextId)
-			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_cubeTexture2D.at(cubeTextId), m_RMInstance->mp_models.at(modelId));
+			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_cubeTexture2D.at(cubeTextId-1), m_RMInstance->mp_models.at(modelId));
 
 		m_objects.push_back(O);
 	}

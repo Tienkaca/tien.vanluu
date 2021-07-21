@@ -95,5 +95,17 @@
       <Filter>Resources\Shaders</Filter>
     </None>
     <None Include="..\Readme.doc" />
+    <None Include="..\Resources\Shaders\Object.fs">
+      <Filter>Resources\Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\Object.vs">
+      <Filter>Resources\Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\SkyBox.fs">
+      <Filter>Resources\Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\SkyBox.vs">
+      <Filter>Resources\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

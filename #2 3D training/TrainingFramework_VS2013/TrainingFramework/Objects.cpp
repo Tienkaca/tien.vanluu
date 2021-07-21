@@ -12,6 +12,7 @@ Objects::~Objects()
 }
 int Objects::Init(Vector3 _pos, Vector3 _rot, Vector3 _scale, Shaders* _shader, Texture* _text, Models* _model)
 {
+	mp_isCube = _text->mp_isCubeTexture;
 	m_pos = _pos;
 	m_rot = _rot*PI / 180;
 	m_scale = _scale;
@@ -50,7 +51,7 @@ Matrix Objects::GetWorldMatrix(bool _forward)
 	}
 	return W;
 }
-void Objects::Draw(ESContext *esContext)
+void Objects::DrawObj(ESContext *esContext)
 {
 	
 	glUseProgram(m_shaders->program);
@@ -74,4 +75,33 @@ void Objects::Draw(ESContext *esContext)
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
+void Objects::DrawCube(ESContext *esContext)
+{
+	glDisable(GL_DEPTH_TEST);
+	glUseProgram(m_shaders->program);
+	glBindBuffer(GL_ARRAY_BUFFER, m_model->m_vboId);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_model->m_iboId);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, m_text->m_textId);
+	if (m_shaders->positionAttribute)
+	{
+		glEnableVertexAttribArray(m_shaders->positionAttribute);
+		glVertexAttribPointer(m_shaders->positionAttribute, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+		
+		Matrix W = GetWorldMatrix(true);
+		Matrix VP = CameraLookAt::GetInstance()->GetViewPerspectiveMatrix();
+		Matrix WVP = W*VP;
+		glUniformMatrix4fv(m_shaders->uniWVP, 1, GL_FALSE, (const GLfloat*)WVP.m);
+	}
+	glBindBuffer(GL_ARRAY_BUFFER, m_model->m_vboId);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_model->m_iboId);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, m_text->m_textId);
+	glEnable(GL_DEPTH_TEST);
+}
+void Objects::Draw(ESContext *esContext)
+{
+	if (mp_isCube)
+		DrawCube(esContext);
+	else
+		DrawObj(esContext);
 }
