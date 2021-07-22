@@ -40,7 +40,15 @@ void Models::LoadModel(Vertex* &verticeData, int* &indiceData)
 	for (int i = 0; i < m_nrIndices / 3; i++)
 	{
 		fscanf(file, "   %d.    %d,    %d,    %d\n", &line, &indiceData[3 * i], &indiceData[3 * i + 1], &indiceData[3 * i + 2]);
+		//std::cout<<"IN:" << indiceData[3 * i] << "\t" << indiceData[3 * i + 1] << "\t" << &indiceData[3 * i + 2] << "\n";
 	}
+	/*std::cout << "Models::LoadModel:\n";
+	std::cout << m_file << "\n";
+	for (int i = 0; i < m_nrIndices / 3; i++)
+	{
+		std::cout <<"OUT"<< indiceData[3 * i] << "\t" << indiceData[3 * i + 1] << "\t" << indiceData[3 * i + 2] << "\n";
+	}*/
+
 	fclose(file);
 }
 void Models::Init()

@@ -17,9 +17,9 @@
 #include "ResourceManager.h"
 #include "SceneManager.h"
 using namespace std;
-Vector3 scale(0.2, 0.2, 0.2);
-Vector3 rota(0, 0, 1);
-Vector3 posi(0, 0 ,1);
+//Vector3 scale(0.2, 0.2, 0.2);
+//Vector3 rota(0, 0, 1);
+//Vector3 posi(0, 0 ,1);
 //Vector3 scale2(0.5, 0.5, 0.5);
 //Vector4 rota2(0, 0, 0, 1);
 //Vector4 posi2(0.5, 0, 0.9, 1);
@@ -29,7 +29,6 @@ int Init ( ESContext *esContext )
 {
 	glEnable(GL_DEPTH_TEST);
 	ResourceManager::GetInstance()->Init();
-	
 	return (SceneManager::GetInstance()->Init());
 	//glEnable(GL_DEPTH_TEST);
 }
