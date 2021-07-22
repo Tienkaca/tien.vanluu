@@ -18,7 +18,9 @@ private:
 	Models *m_model;
 public:
 	int Init(Vector3 _pos,Vector3 _rot,Vector3 _scale, Shaders* _shader,Texture* _text,Models* _model );
-	void Draw(ESContext *esContext);
+	void Draw(ESContext *esContext); 
+	void DrawObj();
+	void DrawCube();
 	Matrix GetWorldMatrix(bool _forward);
 	Objects();
 	~Objects();

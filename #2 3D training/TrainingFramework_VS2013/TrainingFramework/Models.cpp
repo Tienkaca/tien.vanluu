@@ -32,7 +32,7 @@ void Models::LoadModel(Vertex* &verticeData, int* &indiceData)
 			&verticeData[i].tagent.x, &verticeData[i].tagent.y, &verticeData[i].tagent.z,
 			&verticeData[i].uv.x, &verticeData[i].uv.y);
 		// CHU Y CHU Y
-		verticeData[i].pos.y = verticeData[i].pos.y - 1.0f;
+		//verticeData[i].pos.y = verticeData[i].pos.y - 1.0f;
 	}
 
 	fscanf(file, "NrIndices: %d\n", &m_nrIndices);

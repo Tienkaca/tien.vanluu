@@ -1,6 +1,7 @@
 #pragma once
 #include <string.h>
 #include <iostream>
+#include <vector>
 #include "Utilities\utilities.h"
 class Texture
 {
@@ -12,6 +13,8 @@ public:
 	char m_filter1[128];
 	char m_filter2[128];
 	bool mp_isCubeTexture;
+	void InitObj();
+	void InitCube();
 	void Init();
 	Texture();
 	~Texture();

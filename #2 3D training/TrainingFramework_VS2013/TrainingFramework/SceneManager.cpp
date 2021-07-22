@@ -9,6 +9,10 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
+	for (int i = 0; i < m_objects.size(); i++)
+	{
+		delete m_objects.at(i);
+	}
 }
 int SceneManager::Init()
 {
@@ -56,9 +60,12 @@ int SceneManager::Init()
 		fscanf(file, "MODEL %d\n", &modelId);
 		int textCount,textId[8];
 		fscanf(file, "TEXTURES %d\n", &textCount);
-		for (int i = 0; i < textCount; i++)
+		if (textCount)
 		{
-			fscanf(file, "TEXTURE %d\n", &textId[i]);
+			for (int i = 0; i < textCount; i++)
+			{
+				fscanf(file, "TEXTURE %d\n", &textId[i]);
+			}
 		}
 		int cubeTextId;
 		fscanf(file, "CUBETEXTURES %d\n", &cubeTextId);
@@ -76,7 +83,7 @@ int SceneManager::Init()
 			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_texture2D.at(textId[0]), m_RMInstance->mp_models.at(modelId));
 		// chu y textId dong ben tren moi chi lay gia tri textId cua 1 texture
 		else if (cubeTextId)
-			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_cubeTexture2D.at(cubeTextId), m_RMInstance->mp_models.at(modelId));
+			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_cubeTexture2D.at(cubeTextId-1), m_RMInstance->mp_models.at(modelId));
 
 		m_objects.push_back(O);
 	}

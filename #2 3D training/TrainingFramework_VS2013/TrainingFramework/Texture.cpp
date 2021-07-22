@@ -15,6 +15,17 @@ Texture::~Texture()
 
 void Texture::Init()
 {
+	if (mp_isCubeTexture)
+	{
+		InitCube();
+	}
+	else
+	{
+		InitObj();
+	}
+}
+void Texture::InitObj()
+{
 	int w, h, bpp;
 	glGenTextures(1, &m_textId);
 	glBindTexture(GL_TEXTURE_2D, m_textId);
@@ -36,4 +47,39 @@ void Texture::Init()
 	/*glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
 	glGenerateMipmap(GL_TEXTURE_2D);*/
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
+void Texture::InitCube()
+{
+	std::vector<const char* > files = {
+			"../Resources/Textures/left.tga",
+			"../Resources/Textures/right.tga",
+			"../Resources/Textures/top.tga",
+			"../Resources/Textures/bottom.tga",
+			"../Resources/Textures/front.tga",
+			"../Resources/Textures/back.tga"
+	};
+	glGenTextures(1, &m_textId);
+	glBindTexture(GL_TEXTURE_CUBE_MAP,m_textId);
+	for (int i = 0; i<6; i++)
+	{
+		int w, h, bpp;
+		char* imageData = LoadTGA(files[i], &w, &h, &bpp);
+
+		glTexImage2D(
+			GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
+			0,
+			GL_RGB,
+			w,
+			h,
+			0,
+			GL_RGB,
+			GL_UNSIGNED_BYTE,
+			imageData);
+		delete[] imageData;
+	}
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 }

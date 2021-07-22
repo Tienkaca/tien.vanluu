@@ -1,24 +1,9 @@
-﻿Build started 7/19/2021 8:10:04 AM.
-     1>Project "C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#2 3D training\TrainingFramework_VS2013\Utilities\Utilities.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\Include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Utilities.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Math.cpp MemoryManager.cpp MemoryOperators.cpp TGA.cpp
-         TGA.cpp
-         MemoryOperators.cpp
-         MemoryManager.cpp
-         Math.cpp
-         Generating Code...
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#2 3D training\TrainingFramework_VS2013\Debug\Utilities.lib" /NOLOGO Debug\esShader.obj
-         Debug\esUtil.obj
-         Debug\esUtil_win.obj
-         Debug\Math.obj
-         Debug\MemoryManager.obj
-         Debug\MemoryOperators.obj
-         Debug\stdafx.obj
-         Debug\TGA.obj
-         Utilities.vcxproj -> C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#2 3D training\TrainingFramework_VS2013\Debug\Utilities.lib
-     1>Done Building Project "C:\Users\tienk\Desktop\GIT HUB\tien.vanluu\#2 3D training\TrainingFramework_VS2013\Utilities\Utilities.vcxproj" (Build target(s)).
+﻿Build started 7/22/2021 1:54:19 PM.
+     1>Project "D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\Utilities\Utilities.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         Utilities.vcxproj -> D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\Debug\Utilities.lib
+     1>Done Building Project "D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\Utilities\Utilities.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.68
+Time Elapsed 00:00:00.05
