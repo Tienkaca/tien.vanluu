@@ -1,7 +1,7 @@
 #Cameras: 1
 ID 0
 POSITION 0 1 5
-TARGET 0 0 -1
+TARGET 0 0 1
 UP 0 1 0
 FOVY 1.0
 NEAR 0.1

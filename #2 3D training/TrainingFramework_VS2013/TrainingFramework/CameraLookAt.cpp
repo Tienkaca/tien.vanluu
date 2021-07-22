@@ -153,6 +153,31 @@ void CameraLookAt::Update(float _dt)
 	Vector3 xaxis = (m_up.Cross(zaxis).Normalize());
 	Vector3 dx = xaxis*_dt*m_mspeed;
 	float da = _dt*m_rspeed;
+	char lastSignal;
+	bool opposite;
+	float limitAngle = zaxis.Dot(m_up) / (m_up.Length()*zaxis.Length());
+	if ((m_target - m_pos).z > 0)
+	{
+		if (limitAngle > 0.9 || limitAngle < -0.9)
+		{
+			if (mp_signal == VK_UP && limitAngle <- 0.9)
+				mp_signal = 0;
+			else if (mp_signal == VK_DOWN && limitAngle > 0.9)
+				mp_signal = 0;
+		}
+		opposite = true;
+	}
+	else
+	{
+		if (limitAngle > 0.9 || limitAngle < -0.9)
+		{
+			if (mp_signal == VK_UP && limitAngle <- 0.9)
+				mp_signal = 0;
+			else if (mp_signal == VK_DOWN && limitAngle >0.9)
+				mp_signal = 0;
+		}
+		opposite = false;
+	}
 	switch (mp_signal)
 	{
 	case 'W': // phim w
@@ -169,10 +194,16 @@ void CameraLookAt::Update(float _dt)
 		MoveX(dx);
 		break;
 	case VK_UP: //phim mui ten len
-		SetRotX(da);
+		if (opposite)
+			SetRotX(-da);
+		else
+			SetRotX(+da);
 		break;
 	case VK_DOWN: // phim mui ten duoi
-		SetRotX(-da);
+		if (opposite)
+			SetRotX(da);
+		else
+			SetRotX(-da);
 		break;
 	case VK_LEFT: // phim mui ten trai
 		SetRotY(da);
