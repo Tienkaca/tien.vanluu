@@ -13,9 +13,9 @@ public:
 	char m_filter1[128];
 	char m_filter2[128];
 	bool mp_isCubeTexture;
-	void InitObj();
+	void InitObj(int itext);
 	void InitCube();
-	void Init();
+	void Init(int itext);
 	Texture();
 	~Texture();
 };

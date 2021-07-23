@@ -13,7 +13,7 @@ Texture::~Texture()
 {
 }
 
-void Texture::Init()
+void Texture::Init(int itext)
 {
 	if (mp_isCubeTexture)
 	{
@@ -21,13 +21,14 @@ void Texture::Init()
 	}
 	else
 	{
-		InitObj();
+		InitObj(itext);
 	}
 }
-void Texture::InitObj()
+void Texture::InitObj(int itext)
 {
 	int w, h, bpp;
 	glGenTextures(1, &m_textId);
+	glActiveTexture(GL_TEXTURE0 + itext);
 	glBindTexture(GL_TEXTURE_2D, m_textId);
 	char *imageData = LoadTGA(m_file, &w, &h, &bpp);
 	if (bpp == 24)

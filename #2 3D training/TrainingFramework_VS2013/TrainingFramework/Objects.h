@@ -15,9 +15,12 @@ private:
 	Vector3 m_rot;
 	Shaders *m_shaders;
 	Texture *m_text;
+	std::vector<Texture*> m_texts;
 	Models *m_model;
 public:
+	bool mp_isCube;
 	int Init(Vector3 _pos,Vector3 _rot,Vector3 _scale, Shaders* _shader,Texture* _text,Models* _model );
+	int Init(Vector3 _pos, Vector3 _rot, Vector3 _scale, Shaders* _shader, std::vector<Texture*> _texts, int* _textId, int nbTexts, Models* _model);
 	void Draw(ESContext *esContext); 
 	void DrawObj();
 	void DrawCube();

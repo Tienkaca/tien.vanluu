@@ -4,6 +4,7 @@
 
 Objects::Objects()
 {
+	
 }
 
 
@@ -18,8 +19,48 @@ int Objects::Init(Vector3 _pos, Vector3 _rot, Vector3 _scale, Shaders* _shader, 
 	m_model = _model;
 	m_model->Init();
 	m_text = _text;
-	m_text->Init();
+	m_text->Init(0);
 	m_shaders = _shader;
+	return m_shaders->Init();
+}
+int Objects::Init(Vector3 _pos, Vector3 _rot, Vector3 _scale, Shaders* _shader, std::vector<Texture*> _texts,int* _textId,int nbTexts, Models* _model)
+{
+	
+	m_pos = _pos;
+	m_rot = _rot*PI / 180;
+	m_scale = _scale;
+	m_model = _model;
+	m_model->Init();
+	for (int i = 0; i < nbTexts; i++)
+	{
+		m_texts.push_back(_texts.at(_textId[i]));
+		m_texts.at(i)->Init(2*i);
+		mp_isCube = m_texts.at(i)->mp_isCubeTexture;
+	}
+	m_shaders = _shader;
+	if (nbTexts > 1)
+	{
+		int textLoc[4];
+		textLoc[0] = glGetUniformLocation(m_shaders->program, "u_texture0");
+		glUniform1i(textLoc[0], 0);
+		textLoc[1] = glGetUniformLocation(m_shaders->program, "u_texture1");
+		glUniform1i(textLoc[1], 2);
+		textLoc[2] = glGetUniformLocation(m_shaders->program, "u_texture2");
+		glUniform1i(textLoc[2], 4);
+		textLoc[3] = glGetUniformLocation(m_shaders->program, "u_texture3");
+		glUniform1i(textLoc[3], 6);
+		m_shaders->isMultiText = 1;
+	}
+	else
+	{
+		int loc;
+		loc = glGetUniformLocation(m_shaders->program, "u_texture");
+		glUniform1i(loc, 0);
+		m_shaders->isMultiText = 0;
+	}
+		
+	
+	
 	return m_shaders->Init();
 }
 Matrix Objects::GetWorldMatrix(bool _forward)
@@ -52,7 +93,7 @@ Matrix Objects::GetWorldMatrix(bool _forward)
 }
 void Objects::Draw(ESContext *esContext)
 {
-	if (m_text->mp_isCubeTexture)
+	if (mp_isCube)
 		DrawCube();
 	else
 		DrawObj();
@@ -62,11 +103,24 @@ void Objects::DrawObj()
 	glUseProgram(m_shaders->program);
 	glBindBuffer(GL_ARRAY_BUFFER, m_model->m_vboId);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_model->m_iboId);
-	glBindTexture(GL_TEXTURE_2D, m_text->m_textId);
+	if (m_shaders->isMultiText)
+	{
+		for (int i = 0; i < m_texts.size(); i++)
+		{
+			glActiveTexture(GL_TEXTURE0 + 2 * i);
+			int m = m_texts.at(0)->m_textId;
+			glBindTexture(GL_TEXTURE_2D, m_texts.at(i)->m_textId);
+		}
+	}
+	else
+	{
+		glActiveTexture(GL_TEXTURE0 + 0);
+		glBindTexture(GL_TEXTURE_2D, m_texts.at(0)->m_textId);
+	}
 	if (m_shaders->positionAttribute != -1 && m_shaders->uvAttribute != -1)
 	{
 		glEnableVertexAttribArray(m_shaders->positionAttribute);
-		//glEnableVertexAttribArray(myShaders.colorAttribute);
+		//glEnableVertexAttribArray(myShaders.colorAttribute);z
 		glEnableVertexAttribArray(m_shaders->uvAttribute);
 		glVertexAttribPointer(m_shaders->positionAttribute, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
 		//glVertexAttribPointer(myShaders.colorAttribute, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (char*)0 + sizeof(Vector3));

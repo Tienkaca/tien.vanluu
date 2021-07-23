@@ -1,12 +1,14 @@
-#Models: 3
+#Models: 4
 ID 0
 FILE ../Resources/Models/Woman1.nfg
 ID 1
 FILE ../Resources/Models/Woman2.nfg
 ID 2
 FILE ../Resources/Models/SkyBox.nfg
+ID 3
+FILE ../Resources/Models/Terrain.nfg
 
-#2D Textures: 2
+#2D Textures: 7
 ID 0
 FILE ../Resources/Textures/Woman1.tga
 WRAP REPEAT
@@ -15,6 +17,26 @@ ID 1
 FILE ../Resources/Textures/Woman2.tga
 WRAP REPEAT
 FILTER LINEAR_LINEAR LINEAR
+ID 2
+FILE ../Resources/Textures/Terrain_blendmap_1.tga
+WRAP REPEAT
+FILTER LINEAR LINEAR
+ID 3
+FILE ../Resources/Textures/Dirt.tga
+WRAP REPEAT
+FILTER LINEAR LINEAR
+ID 4
+FILE ../Resources/Textures/Grass.tga
+WRAP REPEAT
+FILTER LINEAR LINEAR
+ID 5
+FILE ../Resources/Textures/Rock.tga
+WRAP REPEAT
+FILTER LINEAR LINEAR
+ID 6
+FILE ../Resources/Textures/heightmap.tga
+WRAP REPEAT
+FILTER LINEAR LINEAR
 
 #Cube Textures: 1
 ID 0
@@ -36,8 +58,8 @@ STATES 2
 GL_DEPTH_TEST 1
 GL_CULL_FACE 0
 ID 2
-VS ../Resources/Shaders/SkyBox.vs
-FS ../Resources/Shaders/SkyBox.fs
+VS ../Resources/Shaders/Terrain.vs
+FS ../Resources/Shaders/Terrain.fs
 STATES 2
 GL_DEPTH_TEST 1
 GL_CULL_FACE 0

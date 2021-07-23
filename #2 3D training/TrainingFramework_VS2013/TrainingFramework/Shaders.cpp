@@ -26,7 +26,7 @@ int Shaders::Init(char * fileVertexShader, char * fileFragmentShader)
 	positionAttribute = glGetAttribLocation(program, "a_posL");
 	colorAttribute = glGetAttribLocation(program, "a_color");
 	uvAttribute = glGetAttribLocation(program, "a_uv");
-	int iTextureLoc = glGetUniformLocation(program,"u_texture");
+	int iTextureLoc = glGetUniformLocation(program, "u_texture");
 	glUniform1i(iTextureLoc, 0);
 	uniWVP = glGetUniformLocation(program, "u_WVP");
 	glUniformMatrix4fv(uniWVP, 1, GL_FALSE, 0);
@@ -34,6 +34,7 @@ int Shaders::Init(char * fileVertexShader, char * fileFragmentShader)
 }
 int Shaders::Init()
 {
+	
 	vertexShader = esLoadShader(GL_VERTEX_SHADER, fileVS);
 
 	if (vertexShader == 0)
@@ -53,6 +54,23 @@ int Shaders::Init()
 	positionAttribute = glGetAttribLocation(program, "a_posL");
 	uvAttribute = glGetAttribLocation(program, "a_uv");
 	uniWVP = glGetUniformLocation(program, "u_WVP");
+	/*if (!isMultiText)
+	{
+		int loc = glGetUniformLocation(program, "u_texture");
+		glUniform1i(loc, 0);
+	}
+	else
+	{
+		textLoc[0] = glGetUniformLocation(program, "u_texture0");
+		glUniform1i(textLoc[0], 0);
+		textLoc[1] = glGetUniformLocation(program, "u_texture1");
+		glUniform1i(textLoc[1], 2);
+		textLoc[2] = glGetUniformLocation(program, "u_texture2");
+		glUniform1i(textLoc[2], 4 );
+		textLoc[3] = glGetUniformLocation(program, "u_texture3");
+		glUniform1i(textLoc[3], 6);
+	}*/
+	
 	return 0;
 }
 Shaders::~Shaders()
