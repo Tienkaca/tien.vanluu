@@ -1,4 +1,4 @@
-#Models: 4
+#Models: 5
 ID 0
 FILE ../Resources/Models/Woman1.nfg
 ID 1
@@ -7,8 +7,10 @@ ID 2
 FILE ../Resources/Models/SkyBox.nfg
 ID 3
 FILE ../Resources/Models/Terrain.nfg
+ID 4
+FILE ../Resources/Models/fire.nfg
 
-#2D Textures: 7
+#2D Textures: 8
 ID 0
 FILE ../Resources/Textures/Woman1.tga
 WRAP REPEAT
@@ -35,6 +37,10 @@ WRAP REPEAT
 FILTER LINEAR LINEAR
 ID 6
 FILE ../Resources/Textures/heightmap.tga
+WRAP REPEAT
+FILTER LINEAR LINEAR
+ID 7
+FILE ../Resources/Textures/fire3.tga
 WRAP REPEAT
 FILTER LINEAR LINEAR
 

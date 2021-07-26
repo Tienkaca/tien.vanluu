@@ -4,11 +4,13 @@ attribute vec4 a_color;
 attribute vec2 a_uv;
 varying vec4 v_color;
 varying vec2 v_uv;
+varying float v_distance;
 void main()
 {
 vec4 posL =  u_WVP*vec4(a_posL, 1.0);
 gl_Position = posL;
 v_color = a_color;
 v_uv = a_uv;
+v_distance = posL.z;
 }
    

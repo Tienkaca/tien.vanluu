@@ -59,6 +59,14 @@ void Models::LoadModel(Vertex* &verticeData, int* &indiceData, bool isMultiText)
 		fscanf(file, "   %d.    %d,    %d,    %d\n", &line, &indiceData[3 * i], &indiceData[3 * i + 1], &indiceData[3 * i + 2]);
 	}
 	fclose(file);
+	if (isMultiText)
+	{
+		if (height != NULL)
+		{
+			delete[] height;
+			height = NULL;
+		}
+	}
 }
 void Models::Init(bool isMultiText)
 {
