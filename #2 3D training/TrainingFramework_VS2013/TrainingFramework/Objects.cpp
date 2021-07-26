@@ -19,7 +19,7 @@ int Objects::Init(Vector3 _pos, Vector3 _rot, Vector3 _scale, Shaders* _shader, 
 	m_rot = _rot*PI / 180;
 	m_scale = _scale;
 	m_model = _model;
-	m_model->Init();
+	m_model->Init(false);
 	m_textCube = _text;
 	m_textCube->Init(0);
 	m_shaders = _shader;
@@ -34,7 +34,7 @@ int Objects::Init(Vector3 _pos, Vector3 _rot, Vector3 _scale, Shaders* _shader, 
 	m_rot = _rot*PI / 180;
 	m_scale = _scale;
 	m_model = _model;
-	m_model->Init();
+	m_model->Init(mp_isMutiText);
 	for (int i = 0; i < textCount; i++)
 	{
 		int iTextUnit;

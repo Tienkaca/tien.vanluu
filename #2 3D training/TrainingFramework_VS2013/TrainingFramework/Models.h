@@ -12,8 +12,8 @@ public:
 	int m_nrIndices;
 	int m_id;
 	char m_file[255];
-	void LoadModel(Vertex* &verticeData, int* &indiceData);
-	void Init();
+	void LoadModel(Vertex* &verticeData, int* &indiceData, bool isMultiText);
+	void Init(bool isMultiText);
 	Models();
 	~Models();
 };
