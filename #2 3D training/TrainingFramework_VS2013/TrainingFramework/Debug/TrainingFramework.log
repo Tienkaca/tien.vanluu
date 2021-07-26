@@ -1,6 +1,28 @@
-﻿Build started 7/26/2021 11:26:47 PM.
+﻿Build started 7/27/2021 12:04:34 AM.
      1>Project "D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\TrainingFramework\TrainingFramework.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\Include" /I"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\" /I"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\Resources" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\TrainingFramework.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CubeObject.cpp FireObject.cpp Objects.cpp ResourceManager.cpp SceneManager.cpp Shaders.cpp TerrainObject.cpp TrainingFramework.cpp
+         Shaders.cpp
+         FireObject.cpp
+     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\fireobject.cpp(16): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+         Generating Code...
+         Compiling...
+         TrainingFramework.cpp
+     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\trainingframework.cpp(20): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+         SceneManager.cpp
+     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\scenemanager.cpp(12): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\scenemanager.cpp(119): warning C4018: '<' : signed/unsigned mismatch
+         ResourceManager.cpp
+     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\resourcemanager.cpp(12): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\resourcemanager.cpp(16): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\resourcemanager.cpp(20): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\resourcemanager.cpp(24): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         TerrainObject.cpp
+         Objects.cpp
+         CubeObject.cpp
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\BIN\TrainingFramework.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\Lib" libEGL.lib libGLESv2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\BIN\TrainingFramework.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\BIN\TrainingFramework.lib" /MACHINE:X86 /SAFESEH Debug\CameraLookAt.obj
          Debug\CubeObject.obj
          Debug\FireObject.obj
@@ -19,4 +41,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.56
+Time Elapsed 00:00:03.24

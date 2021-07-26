@@ -28,7 +28,7 @@ int FireObject::Init(Vector3 _pos, Vector3 _rot, Vector3 _scale, Shaders* _shade
 	m_uniDisplacementMapText = glGetUniformLocation(m_shaders->program, "u_Displacement");
 	m_uniFireText = glGetUniformLocation(m_shaders->program, "u_fireText");
 	m_uniMaskText = glGetUniformLocation(m_shaders->program, "u_maskText");
-	
+	m_uniUtime = glGetUniformLocation(m_shaders->program, "u_time");
 	return 0;
 }
 void FireObject::Draw()
@@ -38,15 +38,15 @@ void FireObject::Draw()
 	glUseProgram(m_shaders->program);
 	glBindBuffer(GL_ARRAY_BUFFER, m_model->m_vboId);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_model->m_iboId);
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, m_texts.at(0)->m_textId);
-	glUniform1i(m_uniDisplacementMapText, 0);
 	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, m_texts.at(1)->m_textId);
-	glUniform1i(m_uniFireText,1);
+	glBindTexture(GL_TEXTURE_2D, m_texts.at(0)->m_textId);
+	glUniform1i(m_uniDisplacementMapText, 1);
 	glActiveTexture(GL_TEXTURE2);
+	glBindTexture(GL_TEXTURE_2D, m_texts.at(1)->m_textId);
+	glUniform1i(m_uniFireText,2);
+	glActiveTexture(GL_TEXTURE3);
 	glBindTexture(GL_TEXTURE_2D, m_texts.at(2)->m_textId);
-	glUniform1i(m_uniMaskText, 2);
+	glUniform1i(m_uniMaskText, 3);
 	if (m_shaders->positionAttribute != -1 && m_shaders->uvAttribute != -1)
 	{
 		glEnableVertexAttribArray(m_shaders->positionAttribute);
@@ -57,7 +57,7 @@ void FireObject::Draw()
 		Matrix VP = CameraLookAt::GetInstance()->GetViewPerspectiveMatrix();
 		Matrix WVP = W*VP;
 		glUniformMatrix4fv(m_shaders->uniWVP, 1, GL_FALSE, (const GLfloat*)WVP.m);
-		glUniform1f(m_shaders->uniUtime, CameraLookAt::GetInstance()->mp_utime);
+		glUniform1f(m_uniUtime, CameraLookAt::GetInstance()->mp_utime);
 	}
 	glDrawElements(GL_TRIANGLES, m_model->m_nrIndices, GL_UNSIGNED_INT, 0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

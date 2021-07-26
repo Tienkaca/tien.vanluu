@@ -26,7 +26,6 @@ int Shaders::Init(char * fileVertexShader, char * fileFragmentShader)
 	positionAttribute = glGetAttribLocation(program, "a_posL");
 	uvAttribute = glGetAttribLocation(program, "a_uv");
 	uniWVP = glGetUniformLocation(program, "u_WVP");
-	uniUtime = glGetUniformLocation(program, "u_time");
 	return 0;
 }
 int Shaders::Init()

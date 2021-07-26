@@ -149,6 +149,7 @@ void CameraLookAt::MoveX(Vector3 _dx)
 }
 void CameraLookAt::Update(float _dt)
 {
+	//std::cout << _dt<<"\n";
 	mp_utime += _dt;
 	Vector3 dz = -(m_pos - m_target).Normalize()*_dt*m_mspeed;
 	Vector3 zaxis = (m_pos - m_target).Normalize();

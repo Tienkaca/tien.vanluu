@@ -7,6 +7,8 @@ private:
 	GLint m_uniDisplacementMapText;
 	GLint m_uniFireText;
 	GLint m_uniMaskText; 
+	GLint m_uniUtime;
+
 public:
 	FireObject();
 	~FireObject();

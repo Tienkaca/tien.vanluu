@@ -9,7 +9,7 @@ FAR 500
 MOVE_SPEED 10
 ROTATE_SPEED 2
 
-#Objects: 4
+#Objects: 5
 ID 0 Object
 MODEL 0
 TEXTURES 1
