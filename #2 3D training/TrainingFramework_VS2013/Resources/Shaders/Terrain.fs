@@ -17,6 +17,5 @@ void main()
     tx3 = texture2D(u_texture3,v_uv*100.0);
 
 	result = (tx0.r*tx3 + tx0.g*tx2 + tx0.b*tx1)/(tx0.r + tx0.g +tx0.b);
-    
     gl_FragColor = lerpValue*FogColor +(1.0- lerpValue)*result;//vec4(1,0,0,1); 
 }

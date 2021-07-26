@@ -4,6 +4,9 @@
 #include "CameraLookAt.h"
 #include "ResourceManager.h"
 #include "Objects.h"
+#include "TerrainObject.h"
+#include "CubeObject.h"
+#include "FireObject.h"
 class SceneManager
 {
 private:

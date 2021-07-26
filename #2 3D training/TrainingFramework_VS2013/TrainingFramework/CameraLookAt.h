@@ -16,6 +16,7 @@ private:
 	float m_rspeed;
 	static CameraLookAt* ms_Instance;
 public:
+	float mp_utime;
 	char mp_signal;
 	void Init(Vector3 _pos,Vector3 _target, Vector3 _up,float _FOVY,float _near, float _far,float _mspeed, float _rspeed);
 	void Update(float _dt);

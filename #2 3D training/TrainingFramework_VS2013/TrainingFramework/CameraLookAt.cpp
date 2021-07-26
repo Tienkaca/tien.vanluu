@@ -9,6 +9,7 @@ CameraLookAt::CameraLookAt()
 	m_up.x = 0;			m_up.y = 1;			m_up.z = 0;
 	m_mspeed = PI;
 	m_rspeed = PI;
+	mp_utime = 0;
 	m_P.SetPerspective(PI/2, Globals::screenWidth / Globals::screenHeight, 0.1, 500);
 }
 
@@ -148,6 +149,7 @@ void CameraLookAt::MoveX(Vector3 _dx)
 }
 void CameraLookAt::Update(float _dt)
 {
+	mp_utime += _dt;
 	Vector3 dz = -(m_pos - m_target).Normalize()*_dt*m_mspeed;
 	Vector3 zaxis = (m_pos - m_target).Normalize();
 	Vector3 xaxis = (m_up.Cross(zaxis).Normalize());

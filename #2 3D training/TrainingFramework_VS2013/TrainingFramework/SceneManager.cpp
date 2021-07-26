@@ -53,9 +53,25 @@ int SceneManager::Init()
 	fscanf(file, "#Objects: %d\n", &count);
 	for (int i = 0; i < count; i++)
 	{
-		Objects *O = new Objects;
+		Objects *O;
 		int OId;
 		fscanf(file, "ID %d %s\n", &OId, &buffer);
+		if (!strcmp(buffer, "Terrain"))
+		{
+			O = new TerrainObject;
+		}
+		else if (!strcmp(buffer, "Sky"))
+		{
+			O = new CubeObject;
+		}
+		else if (!strcmp(buffer, "Fire"))
+		{
+			O = new FireObject;
+		}
+		else
+		{
+			O = new Objects;
+		}
 		int modelId;
 		fscanf(file, "MODEL %d\n", &modelId);
 		int textCount,textId[8];
@@ -71,8 +87,8 @@ int SceneManager::Init()
 				fscanf(file, "TEXTURE %d\n", &textId[i]);
 			}
 		}
-		int cubeTextId;
-		fscanf(file, "CUBETEXTURES %d\n", &cubeTextId);
+		int cubeTextId[1];
+		fscanf(file, "CUBETEXTURES %d\n", &cubeTextId[0]);
 		int shaderId;
 		fscanf(file, "SHADER %d\n", &shaderId);
 		int lightId;
@@ -86,9 +102,13 @@ int SceneManager::Init()
 		if (textCount)
 			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_texture2D,textId,textCount, m_RMInstance->mp_models.at(modelId));
 		// chu y textId dong ben tren moi chi lay gia tri textId cua 1 texture
-		else if (cubeTextId)
-			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_cubeTexture2D.at(cubeTextId-1), m_RMInstance->mp_models.at(modelId));
+		else if (cubeTextId[0])
+		{
+			cubeTextId[0] = 0;
+			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_cubeTexture2D, cubeTextId, 1, m_RMInstance->mp_models.at(modelId));
 
+		}
+			
 		m_objects.push_back(O);
 	}
 	return re;
@@ -98,7 +118,7 @@ void SceneManager::Draw(ESContext *esContext)
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	for (int i = 0; i < m_objects.size(); i++)
 	{
-		m_objects.at(i)->Draw(esContext);
+		m_objects.at(i)->Draw();
 	}
 	eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

@@ -11,7 +11,7 @@ Models::Models()
 Models::~Models()
 {
 }
-void Models::LoadModel(Vertex* &verticeData, int* &indiceData, bool isMultiText)
+void Models::LoadModel(Vertex* &verticeData, int* &indiceData)
 {
 	FILE *file;
 	file = fopen(m_file, "r");
@@ -24,10 +24,6 @@ void Models::LoadModel(Vertex* &verticeData, int* &indiceData, bool isMultiText)
 	verticeData = new Vertex[m_nrVertices];
 	int line,w,h,bpp;
 	char *height;
-	if (isMultiText)
-	{
-		height = LoadTGA("../Resources/Textures/heightmap.tga", &w, &h, &bpp);
-	}
 	for (int i = 0; i < m_nrVertices; i++)
 	{
 		fscanf(file, "%d. pos:[%f, %f, %f]; norm:[%f, %f, %f]; binorm:[%f, %f, %f]; tgt:[%f, %f, %f]; uv:[%f, %f];\n", &line,
@@ -36,18 +32,7 @@ void Models::LoadModel(Vertex* &verticeData, int* &indiceData, bool isMultiText)
 			&verticeData[i].binormal.x, &verticeData[i].binormal.y, &verticeData[i].binormal.z,
 			&verticeData[i].tagent.x, &verticeData[i].tagent.y, &verticeData[i].tagent.z,
 			&verticeData[i].uv.x, &verticeData[i].uv.y);
-		if (isMultiText)
-		{
-			int u = (int)(verticeData[i].uv.x*w);
-			int v = (int)(verticeData[i].uv.y*h);
-			float hight = (float)(height[(u*w + v) * 3])*10/256;
-			if (hight < 0)
-			{
-				hight = (float)256*10/256 + hight;
-			}
-			
-			verticeData[i].pos.y = hight;
-		}
+	
 		// CHU Y CHU Y
 		//verticeData[i].pos.y = verticeData[i].pos.y - 1.0f;
 	}
@@ -59,20 +44,43 @@ void Models::LoadModel(Vertex* &verticeData, int* &indiceData, bool isMultiText)
 		fscanf(file, "   %d.    %d,    %d,    %d\n", &line, &indiceData[3 * i], &indiceData[3 * i + 1], &indiceData[3 * i + 2]);
 	}
 	fclose(file);
-	if (isMultiText)
-	{
-		if (height != NULL)
-		{
-			delete[] height;
-			height = NULL;
-		}
-	}
+	
 }
-void Models::Init(bool isMultiText)
+void Models::Init(Vertex *_verticesData, int *_indiceData)
 {
 	Vertex *verticesData;
 	int *indiceData;
-	LoadModel(verticesData, indiceData, isMultiText);
+	if (_verticesData == NULL && _indiceData == NULL)
+	{
+		Vertex *verticesData;
+		int *indiceData;
+		LoadModel(verticesData, indiceData);
+	}
+	else
+	{
+		verticesData = _verticesData;
+		indiceData = _indiceData;
+	}
+	if (verticesData && indiceData)
+	{
+		glGenBuffers(1, &m_vboId);
+		glBindBuffer(GL_ARRAY_BUFFER, m_vboId);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)*m_nrVertices, verticesData, GL_STATIC_DRAW);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+		glGenBuffers(1, &m_iboId);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_iboId);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * m_nrIndices, indiceData, GL_STATIC_DRAW);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	}
+	delete[] verticesData;
+	delete[] indiceData;
+}
+void Models::Init()
+{
+	Vertex *verticesData;
+	int *indiceData;
+	LoadModel(verticesData, indiceData);
 	if (verticesData && indiceData)
 	{
 		glGenBuffers(1, &m_vboId);

@@ -13,18 +13,11 @@ Texture::~Texture()
 {
 }
 
-void Texture::Init(int textUnit)
+void Texture::Init()
 {
-	if (mp_isCubeTexture)
-	{
-		InitCube();
-	}
-	else
-	{
-		InitObj(textUnit);
-	}
+	InitObj();
 }
-void Texture::InitObj(int textUnit)
+void Texture::InitObj()
 {
 	int w, h, bpp;
 	glGenTextures(1, &m_textId);

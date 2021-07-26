@@ -1,4 +1,5 @@
 uniform mat4 u_WVP;
+uniform float u_y;
 uniform sampler2D u_height;
 attribute vec3 a_posL;
 attribute vec4 a_color;
