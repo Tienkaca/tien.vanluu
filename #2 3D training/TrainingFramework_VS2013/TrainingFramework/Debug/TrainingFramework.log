@@ -1,26 +1,9 @@
-﻿Build started 7/22/2021 4:41:41 PM.
+﻿Build started 7/26/2021 10:25:03 AM.
      1>Project "D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\TrainingFramework\TrainingFramework.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\Include" /I"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\" /I"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\Resources" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\TrainingFramework.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CameraLookAt.cpp
-         CameraLookAt.cpp
-     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\cameralookat.cpp(10): warning C4305: '=' : truncation from 'double' to 'float'
-     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\cameralookat.cpp(11): warning C4305: '=' : truncation from 'double' to 'float'
-     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\cameralookat.cpp(12): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>d:\gl intern\gl intern\tien.vanluu\#2 3d training\trainingframework_vs2013\trainingframework\cameralookat.cpp(156): warning C4101: 'lastSignal' : unreferenced local variable
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\BIN\TrainingFramework.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\Lib" libEGL.lib libGLESv2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\BIN\TrainingFramework.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\BIN\TrainingFramework.lib" /MACHINE:X86 /SAFESEH Debug\CameraLookAt.obj
-         Debug\Models.obj
-         Debug\Objects.obj
-         Debug\ResourceManager.obj
-         Debug\SceneManager.obj
-         Debug\Texture.obj
-         Debug\TrainingFramework.obj
-         Debug\Shaders.obj
-         Debug\stdafx.obj
-         "D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\Debug\Utilities.lib"
+     1>Link:
          TrainingFramework.vcxproj -> D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\\BIN\TrainingFramework.exe
      1>Done Building Project "D:\GL intern\GL Intern\tien.vanluu\#2 3D training\TrainingFramework_VS2013\TrainingFramework\TrainingFramework.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.00
+Time Elapsed 00:00:00.13

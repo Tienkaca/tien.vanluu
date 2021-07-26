@@ -62,6 +62,10 @@ int SceneManager::Init()
 		fscanf(file, "TEXTURES %d\n", &textCount);
 		if (textCount)
 		{
+			if (textCount > 1)
+			{
+				std::cout << "hihi";
+			}
 			for (int i = 0; i < textCount; i++)
 			{
 				fscanf(file, "TEXTURE %d\n", &textId[i]);
@@ -80,7 +84,7 @@ int SceneManager::Init()
 		Vector3 scale;
 		fscanf(file, "SCALE %f %f %f\n", &scale.x, &scale.y, &scale.z);
 		if (textCount)
-			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_texture2D.at(textId[0]), m_RMInstance->mp_models.at(modelId));
+			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_texture2D,textId,textCount, m_RMInstance->mp_models.at(modelId));
 		// chu y textId dong ben tren moi chi lay gia tri textId cua 1 texture
 		else if (cubeTextId)
 			re = O->Init(pos, rot, scale, m_RMInstance->mp_shaders.at(shaderId), m_RMInstance->mp_cubeTexture2D.at(cubeTextId-1), m_RMInstance->mp_models.at(modelId));

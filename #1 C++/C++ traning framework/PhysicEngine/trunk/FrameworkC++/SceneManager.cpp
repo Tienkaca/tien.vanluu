@@ -73,7 +73,7 @@ void SceneManager::Init()
 	char tempc[255];
 	std::string temps;
 	int tempi;
-	const char *filePath = "C:/tien.luuvan/C++/PhysicEngine/trunk/FrameworkC++/hihi.txt";
+	const char *filePath = "hihi.txt";
 	FILE *file;
 	file = fopen(filePath, "r");
 	if (!file)

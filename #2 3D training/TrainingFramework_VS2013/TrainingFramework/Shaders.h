@@ -13,8 +13,9 @@ public:
 	GLint colorAttribute;
 	GLint uvAttribute;
 	GLint uniWVP;
+	int uLoc[10];
 	int Init(char * fileVertexShader, char * fileFragmentShader);
-	int Init();
+	int Init(bool sts);
 	Shaders();
 	~Shaders();
 };

@@ -24,22 +24,22 @@
     <ClInclude Include="source\videoDriver.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="source\Circle.h">
+    <ClInclude Include="Circle.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="source\CollisionManager.h">
+    <ClInclude Include="CollisionManager.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="source\Object.h">
+    <ClInclude Include="Object.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="source\Plane.h">
+    <ClInclude Include="Plane.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="source\Rectangles.h">
+    <ClInclude Include="Rectangles.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="source\SceneManager.h">
+    <ClInclude Include="SceneManager.h">
       <Filter>Render</Filter>
     </ClInclude>
   </ItemGroup>
@@ -56,28 +56,23 @@
     <ClCompile Include="source\Main.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="source\Circle.cpp">
+    <ClCompile Include="Circle.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="source\CollisionManager.cpp">
+    <ClCompile Include="CollisionManager.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="source\Object.cpp">
+    <ClCompile Include="Object.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="source\Plane.cpp">
+    <ClCompile Include="Plane.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="source\Rectangles.cpp">
+    <ClCompile Include="Rectangles.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="source\SceneManager.cpp">
+    <ClCompile Include="SceneManager.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="source\hihi.txt">
-      <Filter>Render</Filter>
-    </Text>
   </ItemGroup>
 </Project>

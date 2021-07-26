@@ -107,6 +107,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	CameraLookAt::GetInstance()->CreateInstance();
 	ResourceManager::GetInstance()->CreateInstance();
 	SceneManager::GetInstance()->CreateInstance();
+	
     esInitContext ( &esContext );
 
 	esCreateWindow ( &esContext, "Hello Triangle", Globals::screenWidth, Globals::screenHeight, ES_WINDOW_RGB | ES_WINDOW_DEPTH);
