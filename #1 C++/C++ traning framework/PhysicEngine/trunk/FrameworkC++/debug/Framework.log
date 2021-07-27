@@ -1,33 +1,8 @@
-﻿Build started 7/26/2021 11:22:18 AM.
+﻿Build started 7/27/2021 7:59:23 AM.
      1>Project "D:\GL intern\GL Intern\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\Framework.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\GL intern\GL Intern\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\\" /I"D:\GL intern\GL Intern\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\\common\include" /I"D:\GL intern\GL Intern\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\\source" /Isource\SLES /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _debug /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /Zp1 /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"debug\\" /Fd"debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Circle.cpp CollisionManager.cpp Object.cpp Plane.cpp Rectangles.cpp SceneManager.cpp source\Main.cpp source\matrix.cpp source\shaderManager.cpp source\videoDriver.cpp
-         videoDriver.cpp
-         shaderManager.cpp
-         matrix.cpp
-         Main.cpp
-         SceneManager.cpp
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\scenemanager.cpp(17): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\scenemanager.cpp(52): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\scenemanager.cpp(66): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\scenemanager.cpp(100): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\scenemanager.cpp(111): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\scenemanager.cpp(123): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\scenemanager.cpp(135): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\scenemanager.cpp(158): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\scenemanager.cpp(159): warning C4018: '<' : signed/unsigned mismatch
-         Rectangles.cpp
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\rectangles.cpp(17): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         Plane.cpp
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\plane.cpp(17): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\GL intern\GL Intern\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\\" /I"D:\GL intern\GL Intern\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\\common\include" /I"D:\GL intern\GL Intern\tien.vanluu\#1 C++\C++ traning framework\PhysicEngine\trunk\FrameworkC++\\source" /Isource\SLES /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _debug /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /Zp1 /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"debug\\" /Fd"debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Object.cpp
          Object.cpp
-         CollisionManager.cpp
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\collisionmanager.cpp(73): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\collisionmanager.cpp(75): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\collisionmanager.cpp(360): warning C4101: 'y' : unreferenced local variable
-     1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\collisionmanager.cpp(360): warning C4101: 'x' : unreferenced local variable
-         Circle.cpp
-         Generating Code...
      1>d:\gl intern\gl intern\tien.vanluu\#1 c++\c++ traning framework\physicengine\trunk\frameworkc++\object.cpp(140): warning C4715: 'Object::checkArg' : not all control paths return a value
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"BIN\Framework.exe" /INCREMENTAL /NOLOGO /LIBPATH:common\lib /LIBPATH:lib libEGL.lib libGLESv2.lib esUtil_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"BIN\Framework.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"BIN\Framework.lib" /MACHINE:X86 /SAFESEH:NO debug\Circle.obj
@@ -46,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.03
+Time Elapsed 00:00:01.30

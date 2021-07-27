@@ -16,7 +16,7 @@ Object::Object(float x, float y, float mass, float velocity)
 	m_mouseOffsetY = 0;
 	m_collis = 0;
 	m_deltaX = 0;
-	m_deltaY = 0;
+	m_deltaY = GRAVITY;
 	m_k = 50;
 }
 void Object::Update(float x, float y)
